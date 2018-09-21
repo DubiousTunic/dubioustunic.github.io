@@ -73,6 +73,10 @@ table{
 	padding-left:12px;
 }
 
+#home_menu h2{
+	font-family:exo2,sans-serif;
+}
+
 #home_menu ul{
   padding-top:3px;
   margin-bottom:16px;
