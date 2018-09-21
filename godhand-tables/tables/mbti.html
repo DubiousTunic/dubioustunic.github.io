@@ -1,0 +1,290 @@
+<head>
+  <script src="../lib/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="../lib/datatables/datatables.min.js"></script>
+  <script src="../lib/datatables/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
+  <script src="../lib/glossarize/jquery.glossarize.js"></script>
+  <script src="../lib/glossarize/tooltip/tooltip.js"></script>
+
+  <script src="../js/controllers/tableController.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../styles/main_style.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/datatables/datatables.min.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/datatables/Responsive-2.2.2/css/responsive.dataTables.min.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/glossarize/tooltip/tooltip.css"> </link>
+</head>
+<body>
+
+
+  <header id="header">
+      <div id="header_nav">
+        <div id="header_title">
+          <h1><a href="../index.html">godhand</a></h1>
+        </div>
+        <div id="header_breadcrumbs">
+          <div id="current_page">
+            <h2>> <a href="#">&nbsp;MBTI</a></h2>
+          </div>
+        </div>
+      </div>
+  </header>
+  <div id="main_content">
+    <table class="data_table stripe" id="mbti_table">
+      <thead>
+        <tr>
+          <th> Myers-Briggs </th>
+          <th> Kiersey </th>
+          <th>Focus</th>
+          <th>Information</th>
+          <th>Decisions</th>
+          <th>Organization</th>
+          <th> Dominant </th>
+          <th> Auxiliary </th>
+          <th> Tertiary </th>
+          <th> Inferior </th>
+          <!--<th> Tarot (Court) </th>!-->
+        </tr>
+      </thead>
+
+      <!--
+            Sun &#9737;
+            Moon &#9789;
+            ☿	Mercury	&#9791;
+      ♀	Venus	&#9792;
+      ♁	Earth	&#9793;
+      ♂	Mars	&#9794;
+      ♃	Jupiter	&#9795;
+      ♄	Saturn	&#9796;
+      ♅	Uranus	&#9797;
+      ♆	Neptune	&#9798;
+      ♇	Pluto	&#9799;
+      !-->
+      <tbody>
+        <tr>
+          <td> INTP </td>
+          <td> Architect </td>
+          <td> Introverted </td>
+          <td> Intuitive </td>
+          <td> Thinking </td>
+          <td> Perceptive </td>
+          <td> Ti </td>
+          <td> Ne </td>
+          <td> Si </td>
+          <td> Fe </td>
+
+        </tr>
+
+        <tr>
+          <td> INTJ </td>
+          <td> Mastermind </td>
+          <td> Introverted </td>
+          <td> Intuitive </td>
+          <td> Thinknig </td>
+          <td> Judging </td>
+          <td> Ni </td>
+          <td> Te </td>
+          <td> Fi </td>
+          <td> Se </td>
+        </tr>
+
+        <tr>
+          <td> ESFP </td>
+          <td> Entertainer </td>
+          <td> Extraverted </td>
+          <td> Sensing </td>
+          <td> Feeling </td>
+          <td> Perceptive </td>
+          <td> Se </td>
+          <td> Fi </td>
+          <td> Te </td>
+          <td> Ni</td>
+        </tr>
+
+        <tr>
+          <td> ENTJ </td>
+          <td> Field Marshall </td>
+          <td> Extraverted </td>
+          <td> Intuitive </td>
+          <td> Thinking </td>
+          <td> Judging </td>
+          <td> Te </td>
+          <td> Ni </td>
+          <td> Se </td>
+          <td> Fi </td>
+        </tr>
+
+        <tr>
+          <td> ESTP </td>
+          <td> Promoter </td>
+          <td> Extraverted </td>
+          <td> Sensing </td>
+          <td> Thinking </td>
+          <td> Perceptive </td>
+          <td> Se </td>
+          <td> Ti </td>
+          <td> Fe </td>
+          <td> Ni  </td>
+        </tr>
+
+        <tr>
+          <td> ENTP </td>
+          <td> Inventor </td>
+          <td> Extraverted </td>
+          <td> Intuitive </td>
+          <td> Thinking </td>
+          <td> Perceptive </td>
+          <td> Ne </td>
+          <td> Ti </td>
+          <td> Fe </td>
+          <td> Si </td>
+        </tr>
+
+        <tr>
+            <td> ENFP </td>
+            <td> Champion </td>
+            <td> Extraverted </td>
+            <td> Intuitive</td>
+            <td> Feeling </td>
+            <td> Perceptive </td>
+            <td> Ne </td>
+            <td> Fi </td>
+            <td> Te </td>
+            <td> Se </td>
+        </tr>
+
+        <tr>
+          <td> ENFJ </td>
+          <td> Teacher </td>
+          <td> Extraverted </td>
+          <td> Intuitive </td>
+          <td> Feeling </td>
+          <td> Judging </td>
+          <td> Ne </td>
+          <td> Fi </td>
+          <td> Te </td>
+          <td> Si </td>
+        </tr>
+
+        <tr>
+          <td> ESFP </td>
+          <td> Performer </td>
+          <td> Extraverted </td>
+          <td> Sesnsing </td>
+          <td> Feeling </td>
+          <td> Perceptive </td>
+          <td> Se </td>
+          <td> Fi </td>
+          <td> Te </td>
+          <td> Ni </td>
+        </tr>
+
+        <tr>
+          <td> INFP </td>
+          <td> Healer </td>
+          <td> Introverted </td>
+          <td> Intuitive </td>
+          <td> Feeling </td>
+          <td> Perceptive </td>
+          <td> Fi </td>
+          <td> Ne </td>
+          <td> Si </td>
+          <td> Te </td>
+        </tr>
+
+        <tr>
+          <td> ISFP </td>
+          <td> Composer </td>
+          <td> Introverted </td>
+          <td> Sensing </td>
+          <td> Feeling </td>
+          <td> Perceptive </td>
+          <td> Fi </td>
+          <td> Se </td>
+          <td> Ni </td>
+          <td> Te </td>
+        </tr>
+
+        <tr>
+          <td> ESFJ </td>
+          <td> Provider </td>
+          <td> Extraverted </td>
+          <td> Sensing </td>
+          <td> Feeling </td>
+          <td> Judging </td>
+          <td> Fe </td>
+          <td> Si </td>
+          <td> Ne </td>
+          <td> Ti </td>
+        </tr>
+
+        <tr>
+          <td> ISTP </td>
+          <td> Operator </td>
+          <td> Introverted </td>
+          <td> Sensing </td>
+          <td> Thinking </td>
+          <td> Perceptive </td>
+          <td> Ti </td>
+          <td> Se </td>
+          <td> Ni </td>
+          <td> Fe </td>
+        </tr>
+
+        <tr>
+          <td> ISTJ </td>
+          <td> Inspector </td>
+          <td> Introverted </td>
+          <td> Sensing </td>
+          <td> Thinking </td>
+          <td> Judging </td>
+          <td> Se </td>
+          <td> Te </td>
+          <td> Fi </td>
+          <td> Ne </td>
+        </tr>
+        <tr>
+          <td> ESTJ </td>
+          <td> Supervisor </td>
+          <td> Extraverted </td>
+          <td> Sensing </td>
+          <td> Thinking </td>
+          <td> Judging </td>
+          <td> Te </td>
+          <td> Si </td>
+          <td> Ne </td>
+          <td> Fi </td>
+        </tr>
+
+        <tr>
+          <td> ISFJ </td>
+          <td> Protector </td>
+          <td> Introverted </td>
+          <td> Sensing </td>
+          <td> Feeling </td>
+          <td> Judging </td>
+          <td> Fi </td>
+          <td> Se </td>
+          <td> Ni </td>
+          <td> Te </td>
+        </tr>
+      </tbody>
+
+    </table>
+    <footer>
+      <!--<div id="footer_options">
+        <div id="footer_options_view">
+          <button>Table</button>
+        </div>
+      </div>!-->
+    </footer>
+  </div>
+</body>
+<!--
+<th>  ☰ <br> Heaven </th>
+<th> ☳ <br> Thunder </th>
+<th> ☵ <br> Water (Abyss) </th>
+<th> ☶ <br> Mountain </th>
+<th> ☷ <br> Earth </th>
+<th> ☴ <br> Wood (Wind) </th>
+<th> ☲ <br> Light (Fire, Sun) </th>
+<th> ☱ <br> Lake (Joy) </th>
+!-->

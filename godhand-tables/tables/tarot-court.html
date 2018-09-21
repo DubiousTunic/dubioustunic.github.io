@@ -1,0 +1,273 @@
+<head>
+  <script src="../lib/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="../lib/datatables/datatables.min.js"></script>
+  <script src="../lib/datatables/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
+  <script src="../lib/glossarize/jquery.glossarize.js"></script>
+  <script src="../lib/glossarize/tooltip/tooltip.js"></script>
+
+  <script src="../js/controllers/tableController.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../styles/main_style.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/datatables/datatables.min.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/datatables/Responsive-2.2.2/css/responsive.dataTables.min.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/glossarize/tooltip/tooltip.css"> </link>
+</head>
+<body>
+  <header id="header">
+      <div id="header_nav">
+        <div id="header_title">
+          <h1><a href="../index.html">godhand</a></h1>
+        </div>
+        <div id="header_breadcrumbs">
+          <div id="current_page">
+            <h2>> <a href="#">&nbsp;Tarot (Court)</a></h2>
+          </div>
+        </div>
+      </div>
+  </header>
+  <div id="main_content">
+    <table class="data_table stripe tarot_table" id="tarot_table_court">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Role</th>
+          <th>Suit</th>
+          <th><a href="../tables/elements-west.html">Element</a></th>
+          <th><a href="../tables/zodiac.html">Zodiac</a></th>
+          <th><a href="../tables/tattvas.html">Tattva</a></th>
+          <th><a href="../tables/kabbala.html">Kabbala</a></th>
+          <th>Meaning</th>
+
+        </tr>
+      </thead>
+
+      <!--
+            Sun &#9737;
+            Moon &#9789;
+            ☿	Mercury	&#9791;
+      ♀	Venus	&#9792;
+      ♁	Earth	&#9793;
+      ♂	Mars	&#9794;
+      ♃	Jupiter	&#9795;
+      ♄	Saturn	&#9796;
+      ♅	Uranus	&#9797;
+      ♆	Neptune	&#9798;
+      ♇	Pluto	&#9799;
+      !-->
+
+      <!-- Fire &#128770;
+          Water &#128772;
+          Air &#128769;
+          Earth &#128771;
+      !-->
+      <!--♈	Aries	&#9800;
+      ♉	Taurus	&#9801;
+      ♊	Gemini	&#9802;
+      ♋	Cancer	&#9803;
+      ♌	Leo	&#9804;
+      ♍	Virgo	&#9805;
+      ♎	Libra	&#9806;
+      ♏	Scorpio	&#9807;
+      ♐	Sagittarius	&#9808;
+      ♑	Capricorn	&#9809;
+      ♒	Aquarius	&#9810;
+      ♓	Pisces	&#9811;
+
+      ♠	Black Spade	&#9824;
+♥	Black Heart	&#9829;
+♣	Black Club	&#9827;
+♦	Black Diamond	&#9830;
+♤	White Spade	&#9828;
+♡	White Heart	&#9825;
+♧	White Club	&#9831;
+♢	White Diamond	&#9826;
+
+      !-->
+
+
+      <tbody>
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/kingwands.jpg"></td>
+          <td>King </td>
+          <td>Wands &#9827;</td>
+          <td>&#128770;(<span>&#128770;</span>)</td>
+          <td>&#9800;</td>
+          <td>Tejas under Tejas </td>
+          <td>Chokmah in Atziluth</td>
+          <td>Initiation of Emanation</td>
+        </tr>
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/queenwands.jpg"></td>
+          <td>Queen</td>
+          <td>Wands &#9827;</td>
+          <td>&#128772;(<span>&#128770;</span>)</td>
+          <td>&#9808;</td>
+          <td>Apas under Tejas</td>
+          <td>Binah in Atziluth</td>
+          <td>Passion of Emanation</td>
+        </tr>
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/princewands.jpg"></td>
+          <td>Prince</td>
+          <td>Wands &#9827;</td>
+          <td>&#128770;(<span>&#128769;</span>)</td>
+          <td>&#9804;</td>
+          <td>Vayu under Tejas</td>
+          <td>Tiphareth in Atziluth</td>
+          <td>Formation of Emanation</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/princesswands.jpg"></td>
+          <td>Princess</td>
+          <td>Wands &#9827;</td>
+          <td>&#128770;(<span>&#128771;</span>)</td>
+          <td>&#128770; s</td>
+          <td>Pritvi under Tejas</td>
+          <td>Malkuth in Atziluth</td>
+          <td>Action of Emanation</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/kingcups.jpg"></td>
+          <td>King </td>
+          <td>Cups &#9825;</td>
+          <td>&#128772;(<span>&#128770;</span>)</td>
+          <td>&#9803;</td>
+          <td>Tejas under Apas</td>
+          <td>Chokmah in Beriah</td>
+          <td>Initiation of Creation</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/queencups.jpg"></td>
+          <td>Queen</td>
+          <td>Cups &#9825;</td>
+          <td>&#128772;(<span>&#128772;</span>)</td>
+          <td>&#9811;</td>
+          <td>Apas under Apas</td>
+          <td>Binah in Beriah</td>
+          <td>Passion of Creation</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/princecups.jpg"></td>
+          <td>Prince</td>
+          <td>Cups &#9825;</td>
+          <td>&#128772;(<span>&#128769;</span>)</td>
+          <td>&#9807;</td>
+          <td>Vayu under Apas</td>
+          <td>Tiphareth in Beriah</td>
+          <td>Conceptualization of Creation</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/princesscups.jpg"></td>
+          <td>Princess</td>
+          <td>Cups &#9825;</td>
+          <td>&#128772;(<span>&#128771;</span>)</td>
+          <td>&#128772; s</td>
+          <td>Pritvi under Apas</td>
+          <td>Malkuth in Beriah</td>
+          <td>Implementation of Creation</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/kingswords.jpg"></td>
+          <td>King</td>
+          <td>Swords &#9824;</td>
+          <td>&#128769;(<span>&#128770;</span>)</td>
+          <td>&#9806;</td>
+          <td>Tejas under Vayu</td>
+          <td>Chokmah in Yetzirah</td>
+          <td>Initiation of Formation</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/queenswords.jpg"></td>
+          <td>King</td>
+          <td>Swords &#9824;</td>
+          <td>&#128769;(<span>&#128772;</span>)</td>
+          <td>&#9802;</td>
+          <td>Apas under Vayu</td>
+          <td>Binah in Yetzirah</td>
+          <td>Passion of Formation</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/princeswords.jpg"></td>
+          <td>Prince</td>
+          <td>Swords &#9824;</td>
+          <td>&#128769;(<span>&#128769;</span>)</td>
+          <td>&#9810;</td>
+          <td>Vayu under Vayu</td>
+          <td>Tiphareth in Yetzirah</td>
+          <td>Conceptualization of Formation</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/princessswords.jpg"></td>
+          <td>Princess</td>
+          <td>Swords &#9824;</td>
+          <td>&#128769;(<span>&#128771;</span>)</td>
+          <td>&#128769; s</td>
+          <td>Pritvi under Vayu</td>
+          <td>Malkuth in Yetzirah</td>
+          <td>Implementation of Formation</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/kingpentacles.jpg"></td>
+          <td>King</td>
+          <td>Disks &#9826;</td>
+          <td>&#128770;(<span>&#128771;</span>)</td>
+          <td>&#9809; (<span>&#9805;</span>?)</td>
+          <td>Tejas under Pritvi</td>
+          <td>Chokmah in Asiyah</td>
+          <td>Initiation of Action</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/queenpentacles.jpg"></td>
+          <td>Queen</td>
+          <td>Disks &#9826;</td>
+          <td>&#128771;(<span>&#128772;</span>)</td>
+          <td>&#9805; (<span>&#9809;</span>?)</td>
+          <td>Apas under Pritvi</td>
+          <td>Binah in Asiyah</td>
+          <td>Passion of Action</td>
+        </tr>
+
+       <tr class="tarot_court">
+          <td><img src="../images/tarot-court/princepentacles.jpg"></td>
+          <td>Prince</td>
+          <td>Disks &#9826;</td>
+          <td>&#128771;(<span>&#128769;</span>)</td>
+          <td>&#9801;</td>
+          <td>Vayu under Pritvi</td>
+          <td>Tiphareth in Asiyah</td>
+          <td>Conceptualization of Action</td>
+        </tr>
+
+        <tr class="tarot_court">
+          <td><img src="../images/tarot-court/princesspentacles.jpg"></td>
+          <td>Princess</td>
+          <td>Disks &#9826;</td>
+          <td>&#128771;(<span>&#128771;</span>)</td>
+          <td>&#128771; s</td>
+          <td>Pritvi under Pritvi</td>
+          <td>Malkuth in Asiyah</td>
+          <td>Implementation of Action</td>
+        </tr>
+      </tbody>
+
+    </table>
+  <!--  <footer>
+      <div id="footer_options">
+        <div id="footer_options_view">
+          <button>Table</button>
+        </div>
+      </div>
+    </footer>!-->
+  </div>
+</body>

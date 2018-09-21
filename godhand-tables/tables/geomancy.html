@@ -1,0 +1,237 @@
+<head>
+  <script src="../lib/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="../lib/datatables/datatables.min.js"></script>
+  <script src="../lib/datatables/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
+  <script src="../lib/glossarize/jquery.glossarize.js"></script>
+  <script src="../lib/glossarize/tooltip/tooltip.js"></script>
+
+  <script src="../js/controllers/tableController.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../styles/main_style.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/datatables/datatables.min.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/datatables/Responsive-2.2.2/css/responsive.dataTables.min.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/glossarize/tooltip/tooltip.css"> </link>
+</head>
+<body>
+
+
+  <header id="header">
+      <div id="header_nav">
+        <div id="header_title">
+          <h1><a href="../index.html">godhand</a></h1>
+        </div>
+        <div id="header_breadcrumbs">
+          <div id="current_page">
+            <h2>> <a href="#">&nbsp;Geomancy</a></h2>
+          </div>
+        </div>
+      </div>
+  </header>
+  <div id="main_content">
+    <table class="data_table stripe" id="geomancy_table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Meaning</th>
+          <th>Gender </th>
+          <th><a href="../tables/elements-west.html">Element</a></th>
+          <th><a href="../tables/planets.html">Planet</a> </th>
+          <th><a href="../tables/zodiac.html">Zodiac</a> </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Puer</td>
+          <td><img src="../images/geomancy/puer.png"></td>
+          <td>Boy, Beardless</td>
+          <td>M</td>
+          <td>&#128770;</td>
+          <td>&#9794;</td>
+          <td>&#9800;</td>
+        </tr>
+
+        <tr>
+          <td>Amissio</td>
+          <td><img src="../images/geomancy/amissio.png"></td>
+          <td>Loss</td>
+          <td>F</td>
+          <td>&#128771;</td>
+          <td>&#9792;</td>
+          <td>&#9801;</td>
+        </tr>
+        <tr>
+          <td>Albus</td>
+          <td><img src="../images/geomancy/albus.png"></td>
+          <td>White, Fair</td>
+          <td>M</td>
+          <td>&#128769;</td>
+          <td>&#9791;</td>
+          <td>&#9802;</td>
+        </tr>
+        <tr>
+          <td>Populus</td>
+          <td><img src="../images/geomancy/populus.png"></td>
+          <td>People, Congregation</td>
+          <td>F</td>
+          <td>&#128772;</td>
+          <td>&#9789;</td>
+          <td>&#9803;</td>
+        </tr>
+
+        <tr>
+          <td>Fortuna Major</td>
+          <td><img src="../images/geomancy/fortunamajor.png"></td>
+          <td>Greater Fortune</td>
+          <td>M</td>
+          <td>&#128770;</td>
+          <td>&#9737;</td>
+          <td>&#9804;</td>
+        </tr>
+        <tr>
+          <td>Conjunctio</td>
+          <td><img src="../images/geomancy/conjunctio.png"></td>
+          <td>Conjunction</td>
+          <td>F</td>
+          <td>&#128771;</td>
+          <td>&#9791;</td>
+          <td>&#9807;</td>
+        </tr>
+        <tr>
+          <td>Puella</td>
+          <td><img src="../images/geomancy/puella.png"></td>
+          <td>Girl</td>
+          <td>M</td>
+          <td>&#128769;</td>
+          <td>&#9792;</td>
+          <td>&#9806;</td>
+        </tr>
+
+
+        <tr>
+          <td>Rubeus</td>
+          <td><img src="../images/geomancy/rubeus.png"></td>
+          <td>Red</td>
+          <td>F</td>
+          <td>&#128772;</td>
+          <td>&#9794;</td>
+          <td>&#9807;</td>
+        </tr>
+        <tr>
+          <td>Acquisitio</td>
+          <td><img src="../images/geomancy/acquisitio.png"></td>
+          <td>Acquisition</td>
+          <td>M</td>
+          <td>&#128770;</td>
+          <td>&#9795;</td>
+          <td>&#9808;</td>
+        </tr>
+        <tr>
+          <td>Carcer</td>
+          <td><img src="../images/geomancy/carcer.png"></td>
+          <td>Prison</td>
+          <td>F</td>
+          <td>&#128771;</td>
+          <td>&#9796;</td>
+          <td>&#9809;</td>
+        </tr>
+
+        <tr>
+          <td>Tristitia</td>
+          <td><img src="../images/geomancy/tristitia.png"></td>
+          <td>Sadness, Damned, Cross</td>
+          <td>M</td>
+          <td>&#128769;</td>
+          <td>&#9796;</td>
+          <td>&#9810;</td>
+        </tr>
+        <!--
+              Sun &#9737;
+              Moon &#9789;
+              ☿	Mercury	&#9791;
+        ♀	Venus	&#9792;
+        ♁	Earth	&#9793;
+        ♂	Mars	&#9794;
+        ♃	Jupiter	&#9795;
+        ♄	Saturn	&#9796;
+        ♅	Uranus	&#9797;
+        ♆	Neptune	&#9798;
+        ♇	Pluto	&#9799;
+        !-->
+
+        <!-- Fire &#128770;
+            Water &#128772;
+            Air &#128769;
+            Earth &#128771;
+        !-->
+        <!--♈	Aries	&#9800;
+        ♉	Taurus	&#9801;
+        ♊	Gemini	&#9802;
+        ♋	Cancer	&#9803;
+        ♌	Leo	&#9804;
+        ♍	Virgo	&#9805;
+        ♎	Libra	&#9806;
+        ♏	Scorpio	&#9807;
+        ♐	Sagittarius	&#9808;
+        ♑	Capricorn	&#9809;
+        ♒	Aquarius	&#9810;
+        ♓	Pisces	&#9811; !-->
+
+        <tr>
+          <td>Laetitia</td>
+          <td><img src="../images/geomancy/laetitia.png"></td>
+          <td>Joy, Laughing, Healthy, Bearded</td>
+          <td>F</td>
+          <td>&#128772;</td>
+          <td>&#9795;</td>
+          <td>&#9811;</td>
+        </tr>
+        <tr>
+          <td>Cauda Draconis</td>
+          <td><img src="../images/geomancy/caudadraconis.png"></td>
+          <td>Dragon's Tail, Lower, Out</td>
+          <td>F</td>
+          <td>&#128770;</td>
+          <td>&#9796; <span>&#9794;</span></td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td>Caput Draconis</td>
+          <td><img src="../images/geomancy/caputdraconis.png"></td>
+          <td>Dragon's Head, Upper, In</td>
+          <td>M</td>
+          <td>&#128771;</td>
+          <td>&#9795; <span>&#9792;</span></td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td>Fortuna Minor</td>
+          <td><img src="../images/geomancy/fortunaminor.png"></td>
+          <td>Lesser Fortune</td>
+          <td>M</td>
+          <td>&#128769;</td>
+          <td>&#9737;</td>
+          <td>&#9804;</td>
+        </tr>
+        <tr>
+          <td>Via</td>
+          <td><img src="../images/geomancy/via.png"></td>
+          <td>Way, Journey </td>
+          <td>F</td>
+          <td>&#128772;</td>
+          <td>&#9789;</td>
+          <td>&#9803;</td>
+        </tr>
+      </tbody>
+
+    </table>
+  <!--  <footer>
+      <div id="footer_options">
+        <div id="footer_options_view">
+          <button>Table</button>
+        </div>
+      </div>
+    </footer>!-->
+  </div>
+</body>

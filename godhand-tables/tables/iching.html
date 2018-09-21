@@ -1,0 +1,188 @@
+<head>
+  <script src="../lib/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="../lib/datatables/datatables.min.js"></script>
+  <script src="../lib/datatables/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
+  <script src="../lib/glossarize/jquery.glossarize.js"></script>
+  <script src="../lib/glossarize/tooltip/tooltip.js"></script>
+
+  <script src="../js/controllers/tableController.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../styles/main_style.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/datatables/datatables.min.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/datatables/Responsive-2.2.2/css/responsive.dataTables.min.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/glossarize/tooltip/tooltip.css"> </link>
+</head>
+<body>
+
+
+  <header id="header">
+      <div id="header_nav">
+        <div id="header_title">
+          <h1><a href="../index.html">godhand</a></h1>
+        </div>
+        <div id="header_breadcrumbs">
+          <div id="current_page">
+            <h2>> <a href="#">&nbsp;Iching</a></h2>
+          </div>
+        </div>
+      </div>
+  </header>
+  <div id="main_content">
+    <table class="data_table"id="iching_table">
+      <thead>
+        <tr>
+          <th> Trigram </th>
+          <th> Name </th>
+          <th> Translation </th>
+          <th> Binary </th>
+          <th> Element (East) </th>
+          <th> <a href="../tables/planets.html">Planet</a> </th>
+          <th> Family </th>
+          <th> Body </th>
+          <th> Animal </th>
+          <th> <a href="../tables/chakras.html">Chakra</a> </th>
+          <th> Bushido </th>
+        </tr>
+      </thead>
+
+      <!--
+            Sun &#9737;
+            Moon &#9789;
+            ☿	Mercury	&#9791;
+      ♀	Venus	&#9792;
+      ♁	Earth	&#9793;
+      ♂	Mars	&#9794;
+      ♃	Jupiter	&#9795;
+      ♄	Saturn	&#9796;
+      ♅	Uranus	&#9797;
+      ♆	Neptune	&#9798;
+      ♇	Pluto	&#9799;
+      !-->
+      <tbody>
+        <tr>
+          <td>&#9776;</td>
+          <td> Heaven </td>
+          <td> The Creative, force </td>
+          <td> 111 </td>
+          <td> Metal </td>
+          <td>&#9798;</td>
+          <td> Father </td>
+          <td> Head </td>
+          <td> Horse </td>
+          <td> <img src="../images/chakras/sahasrara.png">Sahasrara </td>
+          <td> Correct </td>
+        </tr>
+
+        <tr>
+          <td>&#9779;</td>
+          <td> Thunder </td>
+          <td> The Arousing, Shake </td>
+          <td> 100 </td>
+          <td> Wood </td>
+          <td>&#9795;</td>
+          <td> First Son </td>
+          <td> Foot </td>
+          <td> Dragon </td>
+          <td> <img src="../images/chakras/vishuddhi.png">Vishuddhi </td>
+          <td> Integrity </td>
+        </tr>
+
+        <tr>
+          <td>&#9781;</td>
+          <td> Water (Abyss) </td>
+          <td> The Abysmal, gorge </td>
+          <td> 010 </td>
+          <td> Water </td>
+          <td>&#9791;</td>
+          <td> Second Son </td>
+          <td> Ear </td>
+          <td> Pig </td>
+          <td> <img src="../images/chakras/manipura.png">Manipura</td>
+          <td> Honor </td>
+        </tr>
+
+        <tr>
+          <td>&#9782;</td>
+          <td> Mountain </td>
+          <td> Keeping Still, bound </td>
+          <td> 001 </td>
+          <td> Earth </td>
+          <td>&#9792;</td>
+          <td> Third Son </td>
+          <td> Hand </td>
+          <td> wolf, dog </td>
+          <td> <img src="../images/chakras/muladhara.png">Muladhara  </td>
+          <td> Heroic, Courage </td>
+        </tr>
+
+        <tr>
+          <td>&#9783;</td>
+          <td> Earth </td>
+          <td> The Receptive, field </td>
+          <td> 000 </td>
+          <td> Earth </td>
+          <td>&#9796;</td>
+          <td> Mother </td>
+          <td> Foot </td>
+          <td> Cow </td>
+          <td> <img src="../images/chakras/bindu.png"> Bindu  </td>
+          <td> Self-Control </td>
+        </tr>
+
+        <tr>
+          <td>&#9780;</td>
+          <td> Wind (Wood) </td>
+          <td> The Gentle, Ground </td>
+          <td> 011 </td>
+          <td> Wood </td>
+          <td>&#9795;</td>
+          <td> First Daughter </td>
+          <td> Thigh </td>
+          <td> Fowl </td>
+          <td> <img src="../images/chakras/svadhisthana.png">Svadhisthana </td>
+          <td> Loyal </td>
+        </tr>
+
+        <tr>
+            <td>&#9778;</td>
+            <td> Light (Fire, Sun) </td>
+            <td> The Clinging, radiance </td>
+            <td> 101 </td>
+            <td> Fire </td>
+            <td>&#9794;</td>
+            <td> Second Daughter </td>
+            <td> Eye </td>
+            <td> Pheasant </td>
+            <td> <img src="../images/chakras/anahata.png">Anahata </td>
+            <td> Compass </td>
+        </tr>
+
+        <tr>
+          <td>&#9777;</td>
+          <td> Lake (Joy) </td>
+          <td> The Joyous, open </td>
+          <td> 110 </td>
+          <td> Metal </td>
+          <td>&#9792;</td>
+          <td> Third Daughter </td>
+          <td> Mouth </td>
+          <td> Sheep, Goat </td>
+          <td> <img src="../images/chakras/ajna.png">Ajna </td>
+          <td> Respect </td>
+        </tr>
+      </tbody>
+
+    </table>
+    
+  </div>
+</body>
+<!--
+<th>  ☰ <br> Heaven </th>
+<th> ☳ <br> Thunder </th>
+<th> ☵ <br> Water (Abyss) </th>
+<th> ☶ <br> Mountain </th>
+<th> ☷ <br> Earth </th>
+<th> ☴ <br> Wood (Wind) </th>
+<th> ☲ <br> Light (Fire, Sun) </th>
+<th> ☱ <br> Lake (Joy) </th>
+!-->

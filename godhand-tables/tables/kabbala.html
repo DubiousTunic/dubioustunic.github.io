@@ -1,0 +1,225 @@
+<head>
+  <script src="../lib/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="../lib/datatables/datatables.min.js"></script>
+  <script src="../lib/datatables/Responsive-2.2.2/js/dataTables.responsive.min.js"></script>
+  <script src="../lib/glossarize/jquery.glossarize.js"></script>
+  <script src="../lib/glossarize/tooltip/tooltip.js"></script>
+
+  <script src="../js/controllers/tableController.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../styles/main_style.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/datatables/datatables.min.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/datatables/Responsive-2.2.2/css/responsive.dataTables.min.css"> </link>
+  <link rel="stylesheet" type="text/css" href="../lib/glossarize/tooltip/tooltip.css"> </link>
+</head>
+<body>
+
+
+  <header id="header">
+      <div id="header_nav">
+        <div id="header_title">
+          <h1><a href="../index.html">godhand</a></h1>
+        </div>
+        <div id="header_breadcrumbs">
+          <div id="current_page">
+            <h2>> <a href="#">&nbsp;Philosophers</a></h2>
+          </div>
+        </div>
+      </div>
+  </header>
+  <div id="main_content">
+    <table class="data_table stripe" id="kabbala_table">
+      <thead>
+        <tr>
+          <th>Sephiroth</th>
+          <th>Hebrew Name</th>
+          <th>Title</th>
+          <th> <a href="../tables/planets.html">Planet</a></th>
+          <th> gods </th>
+          <th> <a href="../tables/tarot-court.html">Tarot</a></th>
+          <th>Body Part</th>
+          <th> <a href="../tables/chakras.html">Chakra</a></th>
+          <th class="none">Definition</th>
+
+        </tr>
+      </thead>
+
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Kether</td>
+          <td>Crown, Unity</td>
+          <td>&#9799;</td>
+          <td>Ra, Father</td>
+          <td>Aces, The Fool</td>
+          <td>Above Head</td>
+          <td><img src="../images/chakras/sahasrara.png">Sahasrara</td>
+          <td class="none">God's original emanation as Unity, the Point.</td>
+
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Chokmah</td>
+          <td>Wisdom (Will)</td>
+          <td>&#9797;</td>
+          <td>Poseidon</td>
+          <td>Twos, Kings, The Emperor</td>
+          <td>Left Temple</td>
+          <td> </td>
+          <td class="none">Second emanation as Will, Duality, the Line.</td>
+
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Binah</td>
+          <td>Understanding (Providence)</td>
+          <td>&#9796;</td>
+          <td>Cronus</td>
+          <td>Threes, Queens, The Chariot, The Lovers</td>
+          <td>Right Temple</td>
+          <td> </td>
+          <td class="none">Third emanation as Understanding, the Triangle.</td>
+
+        </tr>
+
+        <!--
+              Sun &#9737;
+              Moon &#9789;
+              ☿	Mercury	&#9791;
+        ♀	Venus	&#9792;
+        ♁	Earth	&#9793;
+        ♂	Mars	&#9794;
+        ♃	Jupiter	&#9795;
+        ♄	Saturn	&#9796;
+        ♅	Uranus	&#9797;
+        ♆	Neptune	&#9798;
+        ♇	Pluto	&#9799;
+        !-->
+
+        <!-- Fire &#128770;
+            Water &#128772;
+            Air &#128769;
+            Earth &#128771;
+        !-->
+        <!--♈	Aries	&#9800;
+        ♉	Taurus	&#9801;
+        ♊	Gemini	&#9802;
+        ♋	Cancer	&#9803;
+        ♌	Leo	&#9804;
+        ♍	Virgo	&#9805;
+        ♎	Libra	&#9806;
+        ♏	Scorpio	&#9807;
+        ♐	Sagittarius	&#9808;
+        ♑	Capricorn	&#9809;
+        ♒	Aquarius	&#9810;
+        ♓	Pisces	&#9811; !-->
+
+        <tr>
+          <td>4</td>
+          <td>Chesed</td>
+          <td>Kingliness</td>
+          <td>&#9795;</td>
+          <td>Zeus, Jupiter, Odin, Maat</td>
+          <td>Fours, Fortune</td>
+          <td>Left Arm</td>
+          <td> </td>
+          <td class="none">Kingliness of God, in the Pillar of Mercy beyond the Veil.</td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td>Geburah</td>
+          <td>Strength</td>
+          <td>&#9794;</td>
+          <td>Ares, Mars, Horus</td>
+          <td>Fives, Lust, Adjustment</td>
+          <td>Right Arm</td>
+          <td> </td>
+          <td class="none">Strength of God, in the Pillar of Severity beyond the Veil.</td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td>Tiphareth</td>
+          <td>Beauty, Love</td>
+          <td>&#9737;</td>
+          <td>Osiris, Jesus</td>
+          <td>Sixes, Princes, Hermit, Death, High Priestess</td>
+          <td>Heart</td>
+          <td><img src="../images/chakras/anahata.png">Anahata <br><img src="../images/chakras/manipura.png"> Manipura </td>
+          <td class="none">Love or Beauty, the Persisting Center.</td>
+        </tr>
+
+        <tr>
+          <td>7</td>
+          <td>Netzach</td>
+          <td>Victory</td>
+          <td>&#9792;</td>
+          <td>Aprhodite, Venus</td>
+          <td>Sevens, The Star</td>
+          <td>Left Leg</td>
+          <td> </td>
+          <td class="none">Magnificence of Victory.</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Hod</td>
+          <td>Splendor</td>
+          <td>&#9791;</td>
+          <td>Thoth, Hermes, Mercury</td>
+          <td>Eights, The Aeon</td>
+          <td>Right Leg</td>
+          <td> </td>
+          <td class="none">Splendor of Kindling Intellect.</td>
+        </tr>
+
+        <tr>
+          <td>9</td>
+          <td>Yesod</td>
+          <td>Foundation</td>
+          <td>&#9789;</td>
+          <td>Diana</td>
+          <td>Nines, Art</dt>
+          <td>Genitals</td>
+          <td><img src="../images/chakras/svadhisthana.png">Svadhisthana</td>
+          <td class="none">The Foundation, the Psyche or Unconscious; Lunar connection from Earth to Sun (Mercury between Salt and Sulphur).</td>
+        </tr>
+
+        <tr>
+          <td>10</td>
+          <td>Malkuth</td>
+          <td>Kingdom</td>
+          <td>&#9793;</td>
+          <td>Man</td>
+          <td>Tens, Princesses (Pages), The Moon, The Universe</td>
+          <td>Feet</td>
+          <td><img src="../images/chakras/muladhara.png">Muladhara</td>
+          <td class="none">The Kingdom, of Earth and Man, manifesting everything.</td>
+        </tr>
+
+        <tr>
+          <td>11</td>
+          <td>Daath</td>
+          <td>Knowledge</td>
+          <td>&#9797;</td>
+          <td>Uranus</td>
+          <td>The Empress, High Priestess</td>
+          <td>Throat</td>
+          <td><img src="../images/chakras/vishuddhi.png">Vishuddhi</td>
+          <td class="none">\"Hidden\" Sephiroth, of Knowledge uniting Will and Understanding.</td>
+        </tr>
+      </tbody>
+
+    </table>
+
+    <footer>
+    <!--  <div id="footer_options">
+        <div id="footer_options_view">
+          <button>Table</button>
+        </div>
+      </div>
+    </footer>!-->
+  </div>
+</body>
