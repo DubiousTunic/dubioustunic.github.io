@@ -1,0 +1,23 @@
+OK
+
+"You are a magician and you must share your secret PDF with >2 Swiss acolytes"
+  task: if KGB accesses your PDF you die; if you do something illegal you go to federal prison
+    constraints:
+      -completely peer-to-peer
+      -completely clientside decentralized, including db
+
+    aesthetic:
+      -many will keep their groups running / seeding, not necessarily a hit and run thing
+    bonus:
+      -works when internet goes down
+
+first: if someone gets the hash, your group is compromised
+second: if someone cracks the hash, your group is compromised, therefore stop brute force by registering each hash attempt (2 max)
+  -db only available when clients are online
+
+third so plain surveillance of hash input is a problem but that's not really my concern.
+not sure a way around this but maybe there is one
+
+fourth the TURN server or STUN may be compromised, so that a third party gets between the interaction
+
+fifth a peer's computer may be compromised
