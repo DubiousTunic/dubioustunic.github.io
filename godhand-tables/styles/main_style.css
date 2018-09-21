@@ -70,14 +70,15 @@ table{
 }
 
 #home_menu{
-
+	padding-left:12px;
 }
 
 #home_menu ul{
   padding-top:3px;
   margin-bottom:16px;
 	padding-left:12px;
-	border-bottom: 1px solid gray;
+	padding-bottom:4px;
+	border-bottom: 1px solid #DEDEDE;
 }
 
 #home_menu li{
