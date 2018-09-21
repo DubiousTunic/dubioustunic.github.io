@@ -1,0 +1,463 @@
+[
+  {
+    "term" : "sun, ☉, !The Sun",
+    "description" : "Sun: The center star of the Solar System.<br><br>  Active, central, embracing energy; Masculine Principle."
+  }
+  ,
+  {
+    "term" : "moon, ☽,!The Moon",
+    "description" : "Moon: Celestial body that orbits the Earth.<br><br>  Passive energy; Feminine principle "
+  }
+  ,
+  {
+    "term" : "mercury, ☿ ",
+    "description" : "Mercury: First planet from the Sun.<br><br> Swiftness; intellect; alchemy."
+  }
+  ,
+  {
+    "term" : "Venus, ♀",
+    "description" : "Venus: Second planet from the Sun.<br><br>Beauty; Goodness; All-encompassing rejoicing"
+  }
+  ,
+  {
+    "term" : "Earth, ♁",
+    "description" : "Earth: Third planet from the Sun and home of mankind.<br><br>Yin; Salt (alc); Receptive to Heaven"
+  }
+  ,
+  {
+    "term" : "Mars,♂",
+    "description" : "Mars: Fourth planet from the Sun.<br><br> Strength; Warfare"
+  }
+  ,
+  {
+    "term" : "Jupiter, ♃",
+    "description" : "Jupiter: Fifth planet from the Sun.<br><br> Thunder; lightning; Judgment; Kingship."
+  }
+  ,
+  {
+    "term" : "Saturn, ♄",
+    "description" : "Saturn: Sixth planet from the Sun.<br><br>Time; Darkness; Providence; Fate"
+  }
+  ,
+  {
+    "term" : "Uranus, ♅",
+    "description" : "Uranus: Seventh planet from the Sun.<br><br>Knows implicitly the harmony of the solar system, then resolves phrases. <br><br>Emperor; Willful; Surprising"
+  }
+  ,
+  {
+    "term" : "Neptune, ♆",
+    "description" : "Neptune: Eighth planet from the Sun.<br><br>Storms; Persecution; Serenity; Imagination"
+  }
+  ,
+
+  {
+    "term" : "Pluto,♇",
+    "description" : "Pluto: Was the Ninth planet from the Sun; no longer considered a planet in astronomy.<br><br>Brings something new from without"
+  }
+  ,
+
+  {
+    "term" : "Aries,♈",
+    "description" : "Aries: First sign of the Zodiac.<br><br>Fiery coming-forth in rulership."
+  }
+  ,
+
+  {
+    "term" : "Taurus,♉",
+    "description" : "Taurus: Second sign of the Zodiac.<br><br>Earthen steady work"
+  }
+  ,
+
+  {
+    "term" : "Gemini, ♊",
+    "description" : "Gemini: Third sign of the Zodiac.<br><br>Joining in providence"
+  }
+  ,
+
+  {
+    "term" : "Cancer, ♋",
+    "description" : "Cancer: Fourth sign of the Zodiac.<br><br>Providing renewal"
+  }
+  ,
+
+  {
+    "term" : "Leo, ♌",
+    "description" : "Leo: Fifth sign of the Zodiac.<br><br>Exploding ferocity"
+  }
+  ,
+
+  {
+    "term" : "Virgo, ♍",
+    "description" : "Virgo: Sixth sign of the Zodiac.<br><br>Pure beholder"
+  }
+  ,
+
+  {
+    "term" : "Libra, ♎",
+    "description" : "Libra: Seventh sign of the Zodiac.<br><br>Freedom and balance"
+  }
+  ,
+
+  {
+    "term" : "Scorpio, ♏",
+    "description" : "Scorpio: Eighth sign of the Zodiac.<br><br>Force of life and death"
+  }
+  ,
+
+  {
+    "term" : "Sagittarius, ♐",
+    "description" : "Sagittarius: Ninth sign of the Zodiac.<br><br>Directive pointing"
+  }
+  ,
+
+  {
+    "term" : "Capricorn, ♑",
+    "description" : "Capricorn: Tenth sign of the Zodiac.<br><br>Timed forcefulness"
+  }
+  ,
+
+  {
+    "term" : "Aquarius, ♒",
+    "description" : "Aquarius: Eleventh sign of the Zodiac.<br><br>A going-forward"
+  }
+
+  ,
+
+  {
+    "term" : "Pisces, ♓",
+    "description" : "Pisces: Twelfth sign of the Zodiac.<br><br>Rejoicing in completion"
+  }
+  ,
+  {
+    "term" : "Cardinality",
+    "description" : "Strength of activity with respect to time.<br><br>Each element has one of each<br>(4 elements x 3 cardinalities = 12 signs)<br><br>Cardinal: Initiating explosion.<br>Mutable: Oscillating sustenance. Fixed: Sustained energy."
+  }
+  ,
+  {
+    "term" : "Cardinal",
+    "description" : "Initiating explosion of an element."
+  }
+  ,
+  {
+    "term" : "Mutable",
+    "description" : "Oscillating sustenance of an element."
+  }
+  ,
+  {
+    "term" : "Fixed",
+    "description" : "Sustained energy of an element"
+  }
+
+  ,
+  {
+    "term" : "Element",
+    "description" : "Alchemical division of the world.<br><br>Perhaps consider as a \"vertical\" division, rather than as compteing with the periodic table of elements.<br><br>4 Elements: Fire 🜂, Water 🜄, Air 🜁, Earth 🜃<br> + 🜀 Spirit"
+  }
+  ,
+  {
+    "term" : "Spirit, 🜀",
+    "description":"Spirit: In some sense non-elemental. Also known as Ether or Quintessence.<br><br>\"Spirit rules the 4 elements and is the close kin of fire.\""
+  }
+  ,
+  {
+    "term" : "Fire, 🜂",
+    "description" : "Fire: First element, positive and masculine (greater yang). The highest plane.<br><br>Emanates and initiates toward a goal."
+  }
+  ,
+  {
+    "term" : "Water, 🜄",
+    "description" : "Water: Second element and most feminine (greater yin). The second highest plane. <br><br>Creates and holds things together."
+  }
+  ,
+  {
+    "term" : "Air, 🜁",
+    "description" : "Air: Third element, positive and masculine (lesser yang). The second lowest plane.<br><br>Forms and orients things."
+  }
+  ,
+  {
+    "term" : "Earth, 🜃",
+    "description" : "Earth: Fourth element, negative and feminine (lesser yin)<br><br>Action of things."
+  }
+  ,
+  {
+    "term" : "YHVH",
+    "description" : "The tetragrammaton, or Name of God according to Judaism.<br><br>Each letter represents a World (Plane) or Element."
+  }
+  ,
+  {
+    "term" : "4 Causes",
+    "description" : "Aristotle's theory of Four Causes, according to which the activity of the world can be divided into Final Cause, Material Cause, Formal Cause, and Efficient Cause acting upon Prime Matter."
+  }
+
+  ,
+  {
+    "term" : "Prime Matter",
+    "description" : "The fundamental material that is acted upon in the world, as understood without causal properties."
+  }
+  ,
+
+  {
+    "term" : "Final Cause",
+    "description" : "The Aim or Teleology (telos) of a substance.<br><br>For example, the final cause of an eye is seeing."
+  }
+
+  ,
+  {
+    "term" : "Material Cause",
+    "description" : "The material composition of a substance.<br><br>For example, the eye has rodes and cones, etc."
+  }
+  ,
+
+  {
+    "term" : "Formal Cause",
+    "description" : "The Idea or Form operative in a substance.<br><br>For example, the eye is spherical, with a hole for the optic nerve."
+  }
+  ,
+
+  {
+    "term": "Efficient Cause",
+    "description": "The mechanical activity of a substance, as in billiard-balls hitting one another.<br><br>For example, the eye makes saccades, quick unconscious movements."
+  }
+  ,
+  {
+    "term" : "Adam Kadmon",
+    "description" : "The Original World of Man"
+  }
+  ,
+  {
+    "term" : "Atziluth",
+    "description" : "The Highest Plane of God's manifestation, of Emanation."
+  }
+  ,
+  {
+    "term" : "Beriah",
+    "description" : "The Second Highest Plane of God's manifestation, of Creation."
+  }
+  ,
+  {
+    "term" : "Yetzirah",
+    "description" : "The Second Lowest Plane of God's manifestation, of Formation."
+  }
+  ,
+  {
+    "term" : "Asiyah",
+    "description" : "The Lowest and Most Immediate Plane of God's manifestation, of Action."
+  }
+  ,
+  {
+    "term" : "Tattva",
+    "description" : "The 5 Tattvas of Indian Metaphysics, corresponding to the Five Elements. Each can also be paired with the other, for a total of 30.<br><br>They are acted on by the Three Gunnas, which correspond to the Tria Prima (Sulphur, Mercury Salt) of Alchemy, which also has 4 elements (+spirit).<br><br>You can meditate on Tattvas to improve inner vision."
+  }
+  ,
+  {
+    "term" : "Lesser Yang,⚎",
+    "description" : "Lesser Yang"
+  }
+  ,
+  {
+    "term" : "Greater Yang,⚌",
+    "description" : "Greater Yang"
+  }
+  ,
+  {
+    "term" : "Lesser Yin,⚍",
+    "description" : "Lesser Yin"
+  }
+  ,
+  {
+    "term" : "Greater Yin,⚏",
+    "description" : "Greater Yin"
+  }
+  ,
+  {
+    "term" : "Sulphur, 🜍",
+    "description" :"Sulphur: The Oily, fiery, consuming active principle in Alchemy."
+  }
+  ,
+  {
+    "term" : "Salt, 🜔",
+    "description" :"Salt: The Alkali Vehicle of Reaction in Alchemy."
+  }
+  ,
+  {
+    "term" : "Mercury(a)",
+    "description" :"Mercury: The Fluid intellectual conduit that is the passive principle in Alchemy, bridging Sulphur to Salt."
+  }
+  ,
+  {
+    "term" : "Guna",
+    "description" :"The three Gunas of Indian metaphysics, corresponding to the Tria Prima: Sattvas, Tamas, and Rajas.<br><br>The Gunas act upon the Tattvas or elements."
+  }
+  ,
+  {
+    "term" : "Sattvas",
+    "description" :"Upward alchemical activity of the Mind, the Fruit of Which is Wisdom."
+  }
+  ,
+  {
+    "term" : "Tamas",
+    "description" :"Downard activity of the Body, the Fruit of which is Ignorance."
+  }
+  ,
+  {
+    "term" : "Rajas",
+    "description" :"Midspace alchemical activity of the Soul, the Fruit of which is Lust."
+  }
+  ,
+  {
+    "term" : "Chakra",
+    "description" : "The Chakras are energy-centers of the body, which can be meditated upon and in some sense \"opened\" (under proper guidance)"
+  }
+  ,
+  {
+    "term" : "Kether",
+    "description" :"1: Crown - The Original Emanation of God as a unity, asa  point; of Pluto"
+  }
+  ,
+  {
+    "term" : "Chokmah",
+    "description" :"2: Will - The Exertion of Intuition, of Mercy; also the Line; of Neptune"
+  }
+  ,
+  {
+    "term" : "Binah",
+    "description" :"3: Understanding - The Providential Binding Sea, of Severity; also the Triangle; of Saturn, but also Mercury"
+  }
+  ,
+  {
+    "term" : "Chesed",
+    "description" :"4: Lordship - The Principle of Rulership, of Mercy; of Jupiter."
+  }
+  ,
+  {
+    "term" : "Geburah",
+    "description" :"5: Strength  - The Principle of Warfare, of Severity; of Mars."
+  }
+  ,
+  {
+    "term" : "Tiphareth",
+    "description" :"6: Love or Beauty - The Center, the Heart; the perpetual Sun."
+  }
+  ,
+  {
+    "term" : "Netzach",
+    "description" :"7: Victory - Beauty of Victory, of Venus"
+  }
+  ,
+  {
+    "term" : "Hod",
+    "description" :"8: Splendor - Sparkling Intellect and the Mercurial Principle"
+  }
+  ,
+  {
+    "term" : "Yesod",
+    "description" :"9: The Foundation - The Mysterious Psyche, the Foundation and Our Connection to Tipareth (Sun) from Malkuth (Earth)."
+  }
+  ,
+  {
+    "term" : "Malkuth",
+    "description" :"10: The Kingdom - Earth, Glory, Immediacy, in which all is immanent."
+  }
+  ,
+  {
+    "term" : "Daath",
+    "description" :"The \"hidden\" Knowledge Sephiroth, connecting Chokmah and Binah."
+  }
+  ,
+  {
+    "term" : "The Veil",
+    "description" :"The Veil that prevents our grasping things as they exist in simplicity within the 1-2-3 Upper Triad of the Tree of Life."
+  }
+  ,
+  {
+    "term" : "Agni",
+    "description" : "Tattva (Indian element) of Fire, Anger"
+  }
+  ,
+  {
+    "term" : "Vayu",
+    "description" : "Tattva (Indian element) of Air, Attachment"
+  }
+  ,
+  {
+    "term" : "Apas",
+    "description" : "Tattva (Indian element) of Water, Lust"
+  }
+  ,
+  {
+    "term" : "Pritvi",
+    "description" : "Tattva (Indian element) of Earth, Greed"
+  }
+  ,
+  {
+    "term" : "Akasha",
+    "description" : "Tattva (Indian element) of Spirit, Pride"
+  }
+  ,
+  {
+    "term" : "Bindu, Back of Head",
+    "description" : "Bindu, Upper-Back of Head - Chakra of Consciousness (alternative Chakra; not one of the 7; may correspond to Daath)"
+  }
+  ,
+  {
+    "term" : "Muladhara, Root",
+    "description" : "Muladhara, Root - 7th Chakra of Kundalini coiled at base of spine."
+  }
+  ,
+  {
+    "term" : "Svadhisthana, Sacral",
+    "description" : "Svadhisthana, Sacral - 6th Chakra of Unconscious at genital region (corresonds to Yesod)."
+  }
+  ,
+  {
+    "term" : "Manipura, Solar",
+    "description" : "Manipura, Solar - 5th Chakra of Transformation at Solar Plexus or Above Navel."
+  }
+  ,
+  {
+    "term" : "Anahata, Heart",
+    "description" : "Anahata, Heart - 4th Chakra of Balance at Heart (corresponds to Tiphareth)"
+  }
+  ,
+  {
+    "term" : "Vishuddhi, Throat",
+    "description" : "Vishuddhi, Throat - 3rd Chakra of Purity at Throat (may correspond to Daath or the Veil)."
+  }
+  ,
+  {
+    "term" : "Ajna, 3rd Eye",
+    "description" : "Ajna, Third Eye - 2nd Chakra of Awakening at 3rd Eye (center of forehead above eye brows; corresponds to the Veil)"
+  }
+  ,
+  {
+    "term" : "Sahasrara, Crown",
+    "description" : "Sahasrara, Crown - 1st Chakra of Pure Liberation at \"crown\" above head (corresponds to Kether)"
+  }
+  ,
+  {
+    "term" : "Kabbala",
+    "description" : "Jewish conception of God's manifestation as 10 disrete Sephiroth and 22 Hebrew Letters Under 4 Worlds or Elements, as adapted by Esotericists and formulated as the \"Tree of Life\""
+  }
+  ,
+  {
+    "term" : "Planet, Planets",
+    "description" : "The planets, including Earth, Sun, Moon, and Pluto, as understood by the Ancients and Alchemists. <br><br>One presumes that in the properties of the planets one finds arrayed the properties of man, if not God Himself"
+  }
+  ,
+  {
+    "term" : "Zodiac",
+    "description" : "The 12 Astrological Signs, or Constellations which apparently envelop the Earth in a procession, as conceptualized by the Ancients and Alchemists. <br><br>One presumes that in the properties of the zodiac one finds arrayed the properties of man, if not God"
+  }
+  ,
+  {
+    "term" : "Ruling",
+    "description" : "Of a planet, in relation to a Sign of the Zodiac: The planet's primary force is strengthened"
+  }
+  ,
+  {
+    "term" : "Exalted",
+    "description" :"Of a planet, in relation to a Sign of the Zodiac: The planet's special qualities are illuminated"
+  }
+
+
+]
