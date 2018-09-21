@@ -1,2 +1,2 @@
-# VR-philosophy-graph
+# p2p VR search
 3 to be combined
