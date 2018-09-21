@@ -76,6 +76,7 @@ table{
 #home_menu h2{
 	font-family:exo2,sans-serif;
 	font-size:15px;
+	padding-bottom:3px;
 }
 
 #home_menu ul{
@@ -87,7 +88,7 @@ table{
 }
 
 #home_menu li{
-  padding:3px 3px 4px 2px;
+  padding:5px 3px 6px 2px;
 	padding-left:20px;
 	font-family: "roboto", serif;
 	font-size:14px;
