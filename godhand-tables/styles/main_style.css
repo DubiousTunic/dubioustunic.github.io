@@ -51,7 +51,7 @@ table {
 #main_content{
 
   padding-top:22px;
-  overflow-y:scroll;
+  overflow-y:auto;
   position:fixed;
   width:99%;
   top:60px;
