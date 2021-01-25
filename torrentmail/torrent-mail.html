@@ -578,7 +578,7 @@ var config;
    		})
     }
 
-	if(hashTag.indexOf('$') !== null) {
+	if(hashTag.indexOf('$') > -1) {
 		console.log(hashTag);
 		//$("#alchemy").hide();
 		//$(".log").show();
@@ -586,6 +586,8 @@ var config;
 		//$(".browse").hide();
 
 		$(".tile").hide();
+		$("#alchemy").hide();
+		$(".browse").hide();
 		$(".log").show();
        // log('Adding ' + hashTag)
 	     client.add(hashToMagnet(hashTag.substring(1)), {"private" : true }, onTorrent);
@@ -1286,6 +1288,7 @@ var config;
 
 		}
 
+
 		.browse{		
 			height:100%;	
 			width:calc(100% - 100px);
@@ -1309,9 +1312,8 @@ var config;
 
 			/* ArES */
 			padding: 110px;
-			position:absolute;
-			top:0;
-			z-index:4;
+			
+			
 		}
 
 		.tile div{
