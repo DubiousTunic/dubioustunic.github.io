@@ -581,8 +581,8 @@ var config;
 		//$(".tile").hide();
 		//$(".browse").hide();
 
-		$(".tile").hide();
-		$(".log").show();
+		//$(".tile").hide();
+		//$(".log").show();
        // log('Adding ' + torrentID)
 	     client.add(hashToMagnet(torrentID), {"private" : true }, onTorrent);
 
@@ -970,8 +970,17 @@ var config;
 			<br><br><br>
 			<div id="settingsPageHeader" class="page-header">
 				<!--ATHENA!-->
-					<h3>My Attachment</h3>
-				</div>		
+					<h3>mailto:</h3>
+				</div>
+
+			<!--ARES!-->
+			<br>
+			<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">
+
+			<!--ATHENA !-->
+			<div class="page-header">
+				<h3>Mail Attachment</h3>
+			</div>
 		<div class="upload">					
 			<input type="file" id="file" multiple name="files" class="form-control" id="customFile" />				
 			<input class="form-control" id="uploadAuthor" type="text" placeholder="last name, initials">
@@ -979,17 +988,14 @@ var config;
 			<input class="form-control" id="uploadPublisher" type="text" placeholder="publisher">
 			<input class="form-control" type="text" id="uploadDate" placeholder="date">
 			
-			<!--ARES!-->
-
-			<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">
-
 			<button id = "uploadButton" class="btn">MAIL!</button><!--MALKUTH!-->
 		</div>
 		<div id="nav">
 
-			<button class="btn" id="postAddyBtn">Find a Cove</button>
 			<input id="postAddy" placeholder="" type="text" class="form-control" disabled>
 
+
+			<button class="btn" id="postAddyBtn">Cove</button>
 			<!--
 
 			<button class="btn" id="table"><a href="#">Table</a></button>
