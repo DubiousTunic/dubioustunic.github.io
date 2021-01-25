@@ -51,6 +51,9 @@ copyright storing torrent metadata to blockchain
 
 	<script type="text/javascript">
 
+	//model
+
+	var lastHash = "70169f26bab340d30730d350ae1e78db9aacc578";
 
 	var torrentID; 
 
@@ -77,32 +80,7 @@ copyright storing torrent metadata to blockchain
 		var table;
 
 		//view
-		/*function addWhatTR(attr){
-			table.row.add([attr.name, attr.author, attr.torrentCreated, attr.size, attr.numPeers, "[1,2,3]"]).draw();
-
-		}*/
-
-
-		//model
-		function attrGet(torrent){
-			console.log("Setting attributes from metadata");
-			return {
-					"name" : torrent.name,
-					"magnetURI" : torrent.magnetURI,
-					"numPeers" : torrent.numPeers,
-					"torrentCreated": torrent.created,
-					"author" : torrent.createdBy,
-					"size" : torrent.size
-				}
-		}
-
-
-	function viewFile(file){
-		var div = document.createElement("div");
-		file.appendTo(div);
-		$(".media").append(div);
-		$("#mediaViewer").fadeIn();
-	}
+	
 
 	function log (str) {
         var p = document.createElement('p')
@@ -130,8 +108,15 @@ copyright storing torrent metadata to blockchain
 
 $(document).ready(function(){
 
+	//controller
+
+	$("#blob").val(jsonBlobAddy)
 
 	var hashe = document.location.hash.substring(1);
+
+	$("#postAddy").change(function(){
+		jsonBlobAddy = $("#postAddy").val();
+	})
 
 	var jsonBlobAddy;
 
@@ -143,10 +128,6 @@ $(document).ready(function(){
 		jsonBlobAddy = hashe;
 	}
 
-	$("#postAddy").change(function(){
-		jsonBlobAddy = $("#postAddy").val();
-	})
-
 	$("#postAddyBtn").click(function(){
 		
 		$.ajax({
@@ -157,7 +138,15 @@ $(document).ready(function(){
         success: function(res, status, xhr) {
         	console.log("success");
         	jsonBlobAddy = /[^/]*$/.exec(xhr.getResponseHeader('Location'))[0];
+        	lastHash = "";
         	$("#postAddy").val(jsonBlobAddy);
+        	db_whjat_nodes().remove();
+        	db_edges().remove();
+        	$(".tile").empty();
+        	$("table").empty();
+        	alchemy = new Alchemy(config);
+        	populateTable()
+
 
     	},
     	error :function(res){
@@ -513,7 +502,6 @@ var config;
 
 
 	//getDB();
-	var lastHash = "70169f26bab340d30730d350ae1e78db9aacc578";
 	/*var torrent = client.add("magnet:?xt=urn:btih:db7dabf399d05396684b928a3de2c196a21d5ef7&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.empire-js.us%3A1337");*/
 	
 
@@ -521,13 +509,6 @@ var config;
 
 	params = document.location;
 
-
-	dragDrop('body', function (files) {
-	  client.seed(files, function (torrent) {
-	    console.log('Client is seeding ' + torrent.magnetURI)
-	    setDB(torrent.magnetURI);
-	  })
-	})
 
 	var div = $(".column div");
 	var width = div.width();
@@ -552,28 +533,7 @@ var config;
         console.error('ERROR: ' + err.message)
       })
 
-      
-	//getDB();
-      //document.querySelector('form').addEventListener('submit', function (e) {
-       // e.preventDefault() // Prevent page refresh
-		// client.add(torrentID, onTorrent);
-
-     // })
-
-	function implementDB(torrent){
-		console.log(torrent.files);
-		torrent.on('done', function(){
-			db = torrent.files.find(function (file) {
-   				return file.name.endsWith('.json')
-   			//	console.log(db);
-   				//populateTable();
-  			})
-
-
-		})
-	}   
-
-
+     
 
       function onTorrent (torrent) {
         log('Got torrent metadata!')
@@ -730,7 +690,6 @@ var config;
 
 
 
-	$("#blob").val(jsonBlobAddy)
 	$("#uploadButton").click(function(){
 	
  		/* 
@@ -1087,7 +1046,7 @@ var config;
 
 		.hamburger{
 			position:fixed;
-			z-index:6;
+			z-index:9999;
 			top:-12;
 			font-size:55px;
 			color:orange;
@@ -1095,18 +1054,18 @@ var config;
 		}
 
 		h1{
-			margin:0px 0px 0px 55px;
-			top:-12;
+			margin:0px 0px 0px 1px;
+			top:-7;
 			font-variant:small-caps;
 			font-family:"Yusei Magic", "Arial";
 			position:fixed;
 			font-size:45px;
 			float:left;
-			z-index:9999;
+			/* ATHENA patent */
+			z-index:9998;
 			color: orange;
-
-			width:20%;
-			height:75px;
+			text-align:center;
+			width:31%;
 
 
 		}
@@ -1127,10 +1086,13 @@ var config;
 
 		.upload{
 			position:fixed;
-			
-			padding-top:55px;
+			width:inherit;
+			text-align:center;
 		}
+
+
 		.upload input{
+			margin:0 auto;
 			width:inherit;
 		}
 
@@ -1142,7 +1104,7 @@ var config;
 		#nav{
 			position:fixed;
 			text-align:center;
-			width:30%;
+			width:inherit;
 			bottom:0px;
 		}
 
@@ -1185,6 +1147,7 @@ var config;
 
 /*ATHENA*/
 		.page-header h2{
+
 			color:#ffff80;
 			z-index:99;
 			font-family:"Roboto",Georgia;
@@ -1192,19 +1155,19 @@ var config;
 		}
 
 		.page-header h3{
-			padding:25px;
 /*ATHENA*/
 			color:#333300;
 			font-size:17px;
-			
 			position:fixed;
+			float:left;
+			text-align:center;
+			width:31%;
 			z-index:9998;
 
 		}
 
 		/* ATHENA */ 
 		#settingsPageHeader h3{
-			background-color:white;
 		}
 
 		.off-canvas div{
