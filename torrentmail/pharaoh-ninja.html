@@ -134,7 +134,12 @@ $(document).ready(function(){
 	var hashe = document.location.hash.substring(1);
 
 	//ATHENA PATENT PENDING
-	jsonBlobAddy = hashe;
+	if(hashe === "" || hashe ==="#"){
+		jsonBlobAddy = "7947cb51-5bad-11eb-8917-6dadd9cd50ea";
+	}
+	else{
+		jsonBlobAddy = hashe;
+	}
 
 	$("#postAddy").change(function(){
 		jsonBlobAddy = $("#postAddy").val();
@@ -1011,7 +1016,7 @@ var config;
 			
 		<!--ATHENA !-->
 			<div class="page-header">
-				<h3>My Torrent Mail</h3>
+				<h3>My ATH3NA bitchain</h3>
 			</div>
 			<div class="tile">
 
@@ -1212,6 +1217,10 @@ var config;
 		input{
 			color:brown;
 			width:200px;
+		}
+
+		.btn{
+			color:brown;
 		}
 
 		.sidebar{
