@@ -112,7 +112,7 @@ $(document).ready(function(){
 
 	$("#blob").val(jsonBlobAddy)
 
-	var hashe = document.location.hash.substring(1);
+	var hashe = document.location.hash;
 
 	$("#postAddy").change(function(){
 		jsonBlobAddy = $("#postAddy").val();
@@ -125,7 +125,8 @@ $(document).ready(function(){
 		jsonBlobAddy = "7947cb51-5bad-11eb-8917-6dadd9cd50ea";
 	}
 	else{
-		jsonBlobAddy = hashe;
+		jsonBlobAddy = hashe.substring(1);
+		console.log(jsonBlobAddy);
 	}
 
 	$("#postAddyBtn").click(function(){
@@ -964,7 +965,7 @@ var config;
 		<div id="nav">
 
 			<button class="btn" id="postAddyBtn">Create Address</button>
-			<input id="postAddy" placeholder="7947cb51-5bad-11eb-8917-6dadd9cd50ea" type="text" class="form-control" disabled>
+			<input id="postAddy" placeholder="" type="text" class="form-control" disabled>
 
 			<!--
 
