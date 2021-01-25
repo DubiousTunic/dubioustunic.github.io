@@ -55,7 +55,7 @@ copyright storing torrent metadata to blockchain
 
 	var lastHash = "70169f26bab340d30730d350ae1e78db9aacc578";
 
-	var torrentID; 
+	var hashTag; 
 
 	var db_whjat_nodes = TAFFY([
 	]);
@@ -68,7 +68,7 @@ copyright storing torrent metadata to blockchain
 
 	function tabFile(){
 		console.log(document.location);
-		window.open(document.location.pathname + "#" + torrentID)
+		window.open(document.location.pathname + "#" + hashTag)
 	}
 
 
@@ -302,7 +302,8 @@ var client = new WebTorrent();
 			var ext = node.ext;
 
 			console.log(ext)
-			var str = "<a target='_blank' href='#" + node.infoHash + "'>." + ext + "</a>";
+			/*ATHENA*/
+			var str = "<a target='_blank' href='#$" + node.infoHash + "'>." + ext + "</a>";
 
 			//make download
 
@@ -331,7 +332,7 @@ var client = new WebTorrent();
 
 
 
-						$('.tile').append("<div class='tileSquare'><img id='tileIMG-" + i + "' src='https://picsum.photos/200/300?" + i + "' class='img-responsive'><a target='_blank' class='nodeClick' href='#" + node.infoHash + "'><span>" + node.author + ". " + node.date + ". "  + node.title + ". " + node.publisher + ". " + node.ext+ ". </span></a></div>")
+						$('.tile').append("<div class='tileSquare'><img id='tileIMG-" + i + "' src='https://picsum.photos/200/300?" + i + "' class='img-responsive'><a target='_blank' class='nodeClick' href='#$" + node.infoHash + "'><span>" + node.author + ". " + node.date + ". "  + node.title + ". " + node.publisher + ". " + node.ext+ ". </span></a></div>")
 
 /* deprecated
 			var tileIMG = $("#tileIMG"); //$(".tile").lastChild(".tileSquare").first("img");
@@ -349,10 +350,13 @@ var client = new WebTorrent();
 			}
 
 
-			//populate table
-			table.row.add([node.author + ".", node.date + ".", node.title + ".", node.publisher + ".", node.numPeers, str]).draw();
-
 */
+
+		
+		//populate table
+		table.row.add([node.author + ".", node.date + ".", node.title + ".", node.publisher + ".", node.numPeers, str]).draw();
+
+
 			/*ATHENA */
 	  	$(".dataTable").on("click", "nodeClick", function(){
 				var a = $(this).attr("href");
@@ -537,7 +541,7 @@ var config;
 
 	}
 */
-	torrentID = document.location.hash.substring(1);
+	hashTag = document.location.hash.substring(1);
 	client.on('error', function (err) {
         console.error('ERROR: ' + err.message)
       })
@@ -574,17 +578,17 @@ var config;
    		})
     }
 
-	if(torrentID !== "" && torrentID !== "#") {
-		console.log(torrentID);
+	if(hashTag.indexOf('$') !== null) {
+		console.log(hashTag);
 		//$("#alchemy").hide();
 		//$(".log").show();
 		//$(".tile").hide();
 		//$(".browse").hide();
 
-		//$(".tile").hide();
-		//$(".log").show();
-       // log('Adding ' + torrentID)
-	     client.add(hashToMagnet(torrentID), {"private" : true }, onTorrent);
+		$(".tile").hide();
+		$(".log").show();
+       // log('Adding ' + hashTag)
+	     client.add(hashToMagnet(hashTag.substring(1)), {"private" : true }, onTorrent);
 
 	}
 	table = $("table").DataTable({
@@ -659,12 +663,12 @@ var config;
 
 
 		//parse URI
-		//torrentID = document.location.hash.substring(1);
+		//hashTag = document.location.hash.substring(1);
 		//downloadTorrent();
 		window.onhashchange = function(){
-    		torrentID = hashToMagnet(document.location.hash.substring(1));
+    		hashTag = hashToMagnet(document.location.hash); //.substring(1));
    			//$("#text").val(magnetURI);
-   			//torrentID = magnetURI;
+   			//hashTag = magnetURI;
         }
 
 		//upload files, generate URI
@@ -890,12 +894,12 @@ var config;
 						},
 						nodeClick : function(node){
 							console.log(node);
-							torrentID = node._properties.infoHash;
+							hashTag = node._properties.infoHash;
 							//tabFile();
 
 							//find this torrent and select it
 							client.torrents.forEach(function(torrent){
-								if(torrent.infoHash === torrentID){
+								if(torrent.infoHash === hashTag){
 									torrent.select(0, torrent.pieces.length - 1, false);
 
 									torrent.files.forEach(function(file){
@@ -904,7 +908,7 @@ var config;
 									onTorrent(torrent);								
 								}
 							})
-						//	client.add(hashToMagnet(torrentID), onTorrent);
+						//	client.add(hashToMagnet(hashTag), onTorrent);
 							//downloadTorrent(magnetURI);
 						}
 						/*,
@@ -1185,7 +1189,7 @@ var config;
 		 	right:0;
 			position:relative;
 			z-index:4;
-			display:none;
+			/*display:none;*/
 			margin:0 auto;
 
 		}
@@ -1289,21 +1293,12 @@ var config;
 			position:relative;
 			margin-left:50px;
 			z-index:3;
-			display:none;
+			/*display:none;*/
 			
 		}
 
-/*		table.dataTable {
-			width:34%;
-		}
-
-		table{
-			max-width:34%;
-		}
-*/
-
 /*
-	
+	kek
 */
 		
 		.tile{
