@@ -229,7 +229,7 @@ var client = new WebTorrent();
         	
         	if(lastHash !== res.infoHash){
         		lastHash = res.infoHash;
-	            var torrent = client.add(hashToMagnet(res.infoHash));
+	            var torrent = client.add(hashToMagnet(res.infoHash), {"private": true });
 	            torrent.on("metadata", function(){
 					//throttle torrent or deslect file 
 				//	torrent.files.forEach(function(file){
@@ -378,7 +378,7 @@ var client = new WebTorrent();
 	
 			var magnetURI = hashToMagnet(node.lastHash);
 
-			var torrent = client.add(magnetURI);
+			var torrent = client.add(magnetURI, {"private" : true});
 
 			torrent.on('metadata', function(){
 				console.log(torrent);
@@ -414,7 +414,7 @@ var config;
 	 	//store magnetURIvar infohash = ""; //json torrent infohash
 		var client = new WebTorrent()
 		var magnetURI = hashToMagnet(infoHash);
-		client.add(magnetURI, function (torrent) { 
+		client.add(magnetURI, {private : true }, function (torrent) { 
 
 		  torrent.files.forEach(function (file) { 
 		  	if(file.name.endsWith('.json')){			  		
@@ -613,7 +613,7 @@ var config;
 		//$(".browse").hide();
 
        // log('Adding ' + torrentID)
-	     client.add(hashToMagnet(torrentID), onTorrent);
+	     client.add(hashToMagnet(torrentID), {"private" : true }, onTorrent);
 
 	}
 	table = $("table").DataTable({
@@ -947,7 +947,7 @@ var config;
 
 		alchemy = new Alchemy(config);
 //		$("#alchemy").show();
-		client.add(hashToMagnet(whjat.lastHash), updateDB);
+		client.add(hashToMagnet(whjat.lastHash), {"private" : true }, updateDB);
 	}
 
 
