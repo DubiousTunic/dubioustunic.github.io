@@ -131,6 +131,11 @@ copyright storing torrent metadata to blockchain
 $(document).ready(function(){
 
 
+	var hashe = document.location.hash.substring(1);
+
+	//ATHENA PATENT PENDING
+	jsonBlobAddy = hashe;
+
 	$("#postAddy").change(function(){
 		jsonBlobAddy = $("#postAddy").val();
 	})
@@ -593,16 +598,15 @@ var config;
    		})
     }
 
-  //  ATHENA
 	if(torrentID !== "" && torrentID !== "#") {
 		console.log(torrentID);
-		$("#alchemy").hide();
-		$(".log").show();
-		$(".tile").hide();
-		$(".browse").hide();
+		//$("#alchemy").hide();
+		//$(".log").show();
+		//$(".tile").hide();
+		//$(".browse").hide();
 
-        log('Adding ' + torrentID)
-	     client.add(hashToMagnet(torrentID), onTorrent);
+       // log('Adding ' + torrentID)
+	     //client.add(hashToMagnet(torrentID), onTorrent);
 
 	}
 	table = $("table").DataTable({
@@ -718,8 +722,6 @@ var config;
 
 
 
-	//ATHENA PATENT PENDING
-	var jsonBlobAddy = "7947cb51-5bad-11eb-8917-6dadd9cd50ea";
 
 	$("#blob").val(jsonBlobAddy)
 	$("#uploadButton").click(function(){
@@ -981,7 +983,7 @@ var config;
 			<br><br><br>
 			<div id="settingsPageHeader" class="page-header">
 				<!--ATHENA!-->
-					<h3>My Settings</h3>
+					<h3>My Torrent Settings</h3>
 				</div>		
 		<div class="upload">					
 			<input type="file"id="file" multiple name="files" class="form-control" id="customFile" />				
@@ -1009,7 +1011,7 @@ var config;
 			
 		<!--ATHENA !-->
 			<div class="page-header">
-				<h3>My Mail</h3>
+				<h3>My Torrent Mail</h3>
 			</div>
 			<div class="tile">
 
@@ -1170,7 +1172,6 @@ var config;
 			position:relative;
 			z-index:4;
 			margin:0 auto;
-			height:100%;
 
 		}
 
@@ -1190,7 +1191,7 @@ var config;
 		
 			
 			position:fixed;
-			z-index:9999;
+			z-index:9998;
 
 		}
 
