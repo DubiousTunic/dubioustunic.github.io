@@ -131,12 +131,25 @@ copyright storing torrent metadata to blockchain
 $(document).ready(function(){
 
 
-	$("#postAddy").click(function(){
+	$("#postAddy").change(function(){
+		jsonBlobAddy = $("#postAddy").val();
+	})
+
+	$("#postAddyBtn").click(function(){
+		
 		$.ajax({
         url: "https://jsonblob.com/api/jsonBlob",
         type: 'POST',
+        contentType : 'application/JSON',
+        data : '{"infoHash" : "' + lastHash + '"}',
         success: function(res, status, xhr) {
+        	console.log("success");
         	jsonBlobAddy = /[^/]*$/.exec(xhr.getResponseHeader('Location'))[0];
+        	$("#postAddy").val(jsonBlobAddy);
+
+    	},
+    	error :function(res){
+    		console.log(res);
     	}
     })
 
@@ -145,6 +158,8 @@ $(document).ready(function(){
 /*
 	SET THE VIEW
 */
+
+	$("#postAddy").val(jsonBlobAddy); // library address
 	
 	var sidebar = true;
 	$(".hamburger").click(function(){
@@ -154,12 +169,12 @@ $(document).ready(function(){
 
 
 
-	$("#alchemy").hide();
+	//$("#alchemy").hide();
 	$(".tile").show();
 
-	$(".browse").hide();
+	//$(".browse").hide();
 	$(".sidebar").hide();
-	$(".main").width("100%");
+	//$(".main").width("100%");
 
 	/*$('.sidebar').hover(function() {
 	    $(this).fadeTo(1,1);
@@ -196,7 +211,7 @@ var client = new WebTorrent();
 	function seedRecentInfoHash(){
 	
 	$.ajax({
-        url: "https://jsonblob.com/api/jsonBlob/" + JSONBlobAddy,
+        url: "https://jsonblob.com/api/jsonBlob/" + jsonBlobAddy,
         type: 'GET',
         success: function(res) {
         	
@@ -253,14 +268,14 @@ var client = new WebTorrent();
 		$(".tile").hide();
 	})
 
-	$("#tile").click(function(e){
+	/*$("#tile").click(function(e){
 		console.log("here 3")
 		$(".browse").hide();
 		$(".alchemy").hide();
 		$(".tile").show();
 		$(".log").hide();
 
-	})
+	})*/
 
 	$("#log").click(function(e){
 		$(".browse").hide();
@@ -976,11 +991,11 @@ var config;
 			<input class="form-control" type="text" id="uploadDate" placeholder="date">
 			<br><p>Send to Address:</p>
 			<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">
-			<button id = "uploadButton" class="btn">Send</button>
+			<button id = "uploadButton" class="btn">Mail</button><!--MALKUTH!-->
 		</div>
 		<div id="nav">
 
-			<button class="btn" id="tile"><a href="#">Get Address</a></button>
+			<button class="btn" id="postAddyBtn">Create Address</button>
 			<input id="postAddy" type="text" class="form-control" disabled>
 
 			<!--
@@ -992,7 +1007,6 @@ var config;
 		</div>
 		
 			
-		<div class="main">
 		<!--ATHENA !-->
 			<div class="page-header">
 				<h3>My Mail</h3>
@@ -1004,7 +1018,7 @@ var config;
 			
 
 			<div class="table">
-			
+				
 				<table id="DataTables_Table_0" class="dataTable">
 					<thead>
 						<tr>
@@ -1025,8 +1039,7 @@ var config;
 
 			<div class="log"><br><br><br></div>
 				
-		</div>
-
+		
 	<!--<div class="toggleCtrls"><div><span><a href="#" id="list" href="#">List</a></span><span>/</span><span><a href="#" id="graph" href="#">Graph</a></span></div><span>/</span><span><a href="#">Torrents</a></span></div>!-->
 	
 
@@ -1041,7 +1054,8 @@ var config;
 			background-color:white;
 			color:black;
 			font-family:Arial;
-			overflow:hidden;
+			overflow-y:scroll;
+
 			background-color:#ffff80;
 		}
 
@@ -1064,14 +1078,15 @@ var config;
 		.hamburger{
 			position:fixed;
 			z-index:6;
+			top:-12;
 			font-size:55px;
 			color:orange;
 			
 		}
 
 		h1{
-			margin:13px 0px 0px 55px;
-			
+			margin:0px 0px 0px 55px;
+			top:-12;
 			font-variant:small-caps;
 			font-family:"Yusei Magic", "Arial";
 			position:fixed;
@@ -1127,10 +1142,9 @@ var config;
 			float:right;
 			overflow-x:hidden;
 			z-index:3;
-			overflow-y:scroll;
 			height:100%;
 			/*margin-left:2%;*/
-			position:absolute;
+			position:relative;
 			
 
 		}
@@ -1150,10 +1164,10 @@ var config;
 	
 
 		#alchemy{
-		 	bottom:0;
+			/* ATHENA */
+			top:10;
 		 	right:0;
-			display:none;
-			position:absolute;
+			position:relative;
 			z-index:4;
 			margin:0 auto;
 			height:100%;
@@ -1196,7 +1210,7 @@ var config;
 		.sidebar{
 			width:31%;
 			display:none;
-			z-index:4;
+			z-index:9999;
 			border-right:2px solid #CDcDcD;
 			position:fixed;
 			background-color:white;
@@ -1239,10 +1253,10 @@ var config;
 		.browse{		
 			height:100%;	
 			width:calc(100% - 100px);
-			
-			position:fixed;
+			border-bottom:2px solid red;
+			position:relative;
 			margin-left:50px;
-			z-index:99;
+			z-index:3;
 			
 		}
 
@@ -1263,9 +1277,10 @@ var config;
 			
 			width:95%;
 			height:100%;
-			margin:0px 0px 2.5% 45px;
+			margin: 0px 2.5% 45px;
 			position:relative;
-			z-index:9999;
+			z-index:4;
+			border-bottom:2px solid red;
 		}
 
 		.tile div{
