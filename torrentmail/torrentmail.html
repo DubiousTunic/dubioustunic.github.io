@@ -324,7 +324,7 @@ var client = new WebTorrent();
 
 
 
-						$('.tile').prepend("<div class='tileSquare'><img id='tileIMG' class='img-responsive'><a target='_blank' class='nodeClick' href='#" + node.infoHash + "'><span>" + node.author + " - "  + node.title + "</span></a><a href='" + hashToMagnet(node.infoHash) + "'>[magnet]</a>")
+						$('.tile').prepend("<div class='tileSquare'><img id='tileIMG' class='img-responsive'><a target='_blank' class='nodeClick' href='#" + node.infoHash + "'><span>" + node.author + " - "  + node.title + "</span></a>")
 
 
 			//switch(ext){
@@ -996,7 +996,7 @@ var config;
 		<div id="nav">
 
 			<button class="btn" id="postAddyBtn">Create Address</button>
-			<input id="postAddy" type="text" class="form-control" disabled>
+			<input id="postAddy" placeholder="7947cb51-5bad-11eb-8917-6dadd9cd50ea" type="text" class="form-control" disabled>
 
 			<!--
 
