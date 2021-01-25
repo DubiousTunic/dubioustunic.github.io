@@ -695,7 +695,7 @@ var config;
 	//ATHENA PATENT PENDING
 	var jsonBlobAddy = "7947cb51-5bad-11eb-8917-6dadd9cd50ea";
 
-
+	$("#blob").val(jsonBlobAddy)
 	$("#uploadButton").click(function(){
 	
  		/* 
@@ -703,6 +703,7 @@ var config;
 		*/
 		client.seed($("#file")[0].files, {"name" : uploadToAPA()}, function(torrent){
 			blobAddy = $("#blob").val() ? $("#blob").val() : blobAddy;
+			console.log(blobAddy);
 	$.ajax({
         url: "https://jsonblob.com/api/jsonBlob/" + blobAddy,
         type: 'PUT',
