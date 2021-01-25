@@ -703,7 +703,7 @@ var config;
 			jsonBlobAddy = $("#blob").val() ? $("#blob").val() : jsonBlobAddy;
 		//	console.log(jsonBlobAddy);
 	$.ajax({
-        url: "https://jsonblob.com/api/jsonBlob/" + blobAddy,
+        url: "https://jsonblob.com/api/jsonBlob/" + jsonBlobAddy,
         type: 'PUT',
         contentType : 'application/JSON',
         data : '{"infoHash" : "' + torrent.infoHash + '"}',
