@@ -168,7 +168,7 @@ $(document).ready(function(){
 	$("#postAddy").val(jsonBlobAddy); // library address
 	
 	var sidebar = true;
-	$(".hamburger").click(function(){
+	$("#title").click(function(){
 		$(".sidebar").toggle("slide");
 	})
 
@@ -959,7 +959,7 @@ var config;
  </head>
  <body>
 	 <!--!-->
-		<a href="#" class="hamburger"> &#9776; </a><h1 id="title">torrentmail.us</h1>		
+		<h1 id="title"><a href="#">torrentmail.us</a></h1>		
 	 		
 	 	<div class="sidebar">
 			
@@ -973,15 +973,16 @@ var config;
 					<h3>mailto:</h3>
 				</div>
 
-			<!--ARES!-->
-			<br>
-			<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">
-
 			<!--ATHENA !-->
 			<div class="page-header">
 				<h3>Mail Attachment</h3>
 			</div>
 		<div class="upload">					
+			<!--ARES!-->
+			<br>
+			<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">
+			<br>
+
 			<input type="file" id="file" multiple name="files" class="form-control" id="customFile" />				
 			<input class="form-control" id="uploadAuthor" type="text" placeholder="last name, initials">
 			<input class="form-control" id="uploadTitle" type="text" placeholder="title">
@@ -1005,10 +1006,6 @@ var config;
 		</div>
 		
 			
-		<!--ATHENA !-->
-			<div class="page-header">
-				<h3>Private Cove</h3>
-			</div>
 			<div class="tile">
 			</div>
 			<div class="browse">
@@ -1054,14 +1051,21 @@ var config;
 			font-family:Arial;
 			overflow-y:scroll;
 
-			background-color:#33cccc
-;
+			background-color:#a69144;
 
 		}
 
-		a{/*THENA */
+		/*ATHENA */
+		#title a{
 			color:#ff6666;
+			text-decoration:underline;
+			letter-spacing:2px; /* ARES */
 		}
+
+		a{
+			color:red;
+		}
+
 
 		a:hover{
 			color:brown;
@@ -1099,7 +1103,7 @@ var config;
 			font-variant:small-caps;
 			font-family:"Yusei Magic", "Arial";
 			position:fixed;
-			font-size:45px;
+			font-size:75px;
 			float:left;
 			/* ATHENA patent */
 			z-index:9998;
@@ -1204,7 +1208,7 @@ var config;
 			float:left;
 			padding:0;
 
-			margin:0;
+			margin:0px;
 			text-align:center;
 			width:31%;
 			z-index:9996;
@@ -1213,6 +1217,8 @@ var config;
 
 		/* ATHENA */ 
 		#settingsPageHeader h3{
+			position:absolute;
+			top:-24;
 		}
 
 		.off-canvas div{
@@ -1235,12 +1241,13 @@ var config;
 		.sidebar{
 			width:31%;
 			display:none;
-			z-index:9998;
+			z-index:9997;
 			border-right:2px solid #CDcDcD;
 			position:fixed;
 			background-color:#ffff66;
 			float:left;
 			height:100%;
+			top:0;
 		}
 
 		.mediaWidget{
