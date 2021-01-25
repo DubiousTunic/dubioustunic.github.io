@@ -110,7 +110,7 @@ $(document).ready(function(){
 
 	//controller
 
-	$("#blob").val(jsonBlobAddy)
+	$("#blob").val("7947cb51-5bad-11eb-8917-6dadd9cd50ea")
 
 	var hashe = document.location.hash;
 
@@ -128,6 +128,8 @@ $(document).ready(function(){
 		jsonBlobAddy = hashe.substring(1);
 		console.log(jsonBlobAddy);
 	}
+
+
 
 	$("#postAddyBtn").click(function(){
 		
@@ -294,8 +296,9 @@ var client = new WebTorrent();
 	var tileRow;
 	function populateTable(node){
 		if(!node) return;
-
+			//war
 			var ext = node.ext;
+
 			console.log(ext)
 			var str = "<a target='_blank' href='#" + node.infoHash + "'>." + ext + "</a>";
 
@@ -319,32 +322,35 @@ var client = new WebTorrent();
 
 
 
-
+ i++;
 
 			//gr8 hacking
 			
 
 
 
-						$('.tile').prepend("<div class='tileSquare'><img id='tileIMG' class='img-responsive'><a target='_blank' class='nodeClick' href='#" + node.infoHash + "'><span>" + node.author + " - "  + node.title + "</span></a>")
+						$('.tile').append("<div class='tileSquare'><img id='tileIMG-" + i + "' src='https://picsum.photos/200/300?" + i + "' class='img-responsive'><a target='_blank' class='nodeClick' href='#" + node.infoHash + "'><span>" + node.author + ". " + node.date + ". "  + node.title + ". " + node.publisher + ". " + node.ext+ ". </span></a></div>")
 
+/* deprecated
+			var tileIMG = $("#tileIMG"); //$(".tile").lastChild(".tileSquare").first("img");
+			switch(ext){
+				case "pdf": 
+					tileIMG.attr("src", "https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg");
+					break;
+				case "mp3": 
+					tileIMG.attr('src', "https://icons-for-free.com/iconfiles/png/512/file+mp3+icon-1320183612821479043.png");
 
-			//switch(ext){
-			//	case "pdf": 
-					$("#tileIMG").attr("src", "https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg");
-			//		break;
-			//	case "mp3": 
-			//		$("#tileIMG").attr('src', "https://image.flaticon.com/icons/png/512/81/81281.png");
-			//		break;
-			//	default :
-			//		$("#tileIMG").attr("src", "https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg");
-			//}
+					break;
+				default :
+					tileIMG.attr("src", "https://picsum.photos/200/300");
+					break;
+			}
 
 
 			//populate table
 			table.row.add([node.author + ".", node.date + ".", node.title + ".", node.publisher + ".", node.numPeers, str]).draw();
 
-
+*/
 			/*ATHENA */
 	  	$(".dataTable").on("click", "nodeClick", function(){
 				var a = $(this).attr("href");
@@ -659,6 +665,15 @@ var config;
 
 		//upload files, generate URI
 
+	function getFile(filePath) {
+        return filePath.substr(filePath.lastIndexOf('\\') + 1).split('.')[0];
+    }
+
+    function getoutput() {
+        outputfile.value = getFile(inputfile.value);
+        on.value = inputfile.value.split('.')[1];
+    }
+
 
 	/*
 		uploadToAPA : Parses upload text data
@@ -668,9 +683,10 @@ var config;
 		var commentStr = '{"id" : ' + Date.now() + ', "title" :  "'+  + '", "lastHash" : "'+ lastHash +'"}'
 		//var tagArr = $("#uploadTags").val().split(' , ');
 
+		var filePath = $("#file").val();
+		var file_ext = filePath.substr(filePath.lastIndexOf('.')+1,filePath.length);
 		console.log($("#uploadAuthor").val());
-		return $('#uploadAuthor').val().split('.').join("") + " - (" + $('#uploadDate').val().split('.').join("") + ") - " + $("#uploadTitle").val().split('.').join("") + " - " + $("#uploadPublisher").val().split('.').join("") + " - " + lastHash + ".pdf"
-		
+		return $('#uploadAuthor').val().split('.').join("") + " - (" + $('#uploadDate').val().split('.').join("") + ") - " + $("#uploadTitle").val().split('.').join("") + " - " + $("#uploadPublisher").val().split('.').join("") + " - " + lastHash + "." + file_ext; 	
 	}
 
 	//the hash mary
@@ -697,8 +713,8 @@ var config;
 			Seeds the files and names torrent file to APA style		
 		*/
 		client.seed($("#file")[0].files, {"name" : uploadToAPA()}, function(torrent){
-			jsonBlobAddy = $("#blob").val() ? $("#blob").val() : jsonBlobAddy;
-		//	console.log(jsonBlobAddy);
+			jsonBlobAddy = $("#blob").val(); // ? $("#blob").val() : jsonBlobAddy;
+			console.log(jsonBlobAddy);
 	$.ajax({
         url: "https://jsonblob.com/api/jsonBlob/" + jsonBlobAddy,
         type: 'PUT',
@@ -950,7 +966,7 @@ var config;
 			<br><br><br>
 			<div id="settingsPageHeader" class="page-header">
 				<!--ATHENA!-->
-					<h3>My Envelope</h3>
+					<h3>My Attachment</h3>
 				</div>		
 		<div class="upload">					
 			<input type="file" id="file" multiple name="files" class="form-control" id="customFile" />				
@@ -958,13 +974,16 @@ var config;
 			<input class="form-control" id="uploadTitle" type="text" placeholder="title">
 			<input class="form-control" id="uploadPublisher" type="text" placeholder="publisher">
 			<input class="form-control" type="text" id="uploadDate" placeholder="date">
-			<br><p>Send to Address:</p>
+			
+			<!--ARES!-->
+
 			<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">
-			<button id = "uploadButton" class="btn">Mail</button><!--MALKUTH!-->
+
+			<button id = "uploadButton" class="btn">MAIL!</button><!--MALKUTH!-->
 		</div>
 		<div id="nav">
 
-			<button class="btn" id="postAddyBtn">Create Address</button>
+			<button class="btn" id="postAddyBtn">Address</button>
 			<input id="postAddy" placeholder="" type="text" class="form-control" disabled>
 
 			<!--
@@ -1025,12 +1044,13 @@ var config;
 			font-family:Arial;
 			overflow-y:scroll;
 
-			background-color:#6666ff;
+			background-color:#33cccc
+;
 
 		}
 
 		a{
-			color:yellow;
+			color:brown;
 		}
 
 		a:hover{
@@ -1054,6 +1074,10 @@ var config;
 			
 		}
 
+		.hamburger:hover{
+			cursor:pointer;
+		}
+
 		h1{
 			margin:0px 0px 0px 1px;
 			top:-7;
@@ -1064,7 +1088,7 @@ var config;
 			float:left;
 			/* ATHENA patent */
 			z-index:9998;
-			color: orange;
+			color: #ffff1a;
 			text-align:center;
 			width:31%;
 
@@ -1084,9 +1108,9 @@ var config;
 		}
 
 		
-
 		.upload{
 			position:fixed;
+			margin-top:12px;
 			width:inherit;
 			text-align:center;
 		}
@@ -1094,7 +1118,7 @@ var config;
 
 		.upload input{
 			margin:0 auto;
-			width:inherit;
+			width:100%;
 		}
 
 		.table{
@@ -1279,6 +1303,7 @@ var config;
 			text-align:center;
 			width:80px;
 			height:133px;
+			padding:7px;
 		}
 
 
