@@ -129,26 +129,43 @@ $(document).ready(function(){
 		console.log(jsonBlobAddy);
 	}
 
-
+	$("#postAddy").val(jsonBlobAddy);
 
 	$("#postAddyBtn").click(function(){
-		
-		$.ajax({
+		newLibrary();
+	})
+
+
+	//* ARES */
+	$("select").change(function(){
+		$("#postAddy").val($(this).val())
+		newLibrary($(this).val());
+	})
+
+
+/*ATHENA*/
+function newLibrary(jsonBlobAddy){
+	$.ajax({
         url: "https://jsonblob.com/api/jsonBlob",
         type: 'POST',
         contentType : 'application/JSON',
-        data : '{"infoHash" : "' + lastHash + '"}',
+        data : '{"infoHash" : "' + lastHash + '" }',
         success: function(res, status, xhr) {
         	console.log("success");
-        	jsonBlobAddy = /[^/]*$/.exec(xhr.getResponseHeader('Location'))[0];
-        	lastHash = "";
+        	if(!jsonBlobAddy){
+        		jsonBlobAddy = /[^/]*$/.exec(xhr.getResponseHeader('Location'))[0];
+        		
+        	$("select").append("<option value='" + jsonBlobAddy + "'>" + jsonBlobAddy + "</option>")
+        	}
+        	
         	$("#postAddy").val(jsonBlobAddy);
-        	db_whjat_nodes().remove();
-        	db_edges().remove();
-        	$(".tile").empty();
-        	$("table").empty();
-        	alchemy = new Alchemy(config);
-        	populateTable()
+        	//kek
+
+	$('option').filter(function() { 
+    	return ($(this).text() == jsonBlobAddy); //To select Blue
+	}).prop('selected', true);
+        
+        refresh();
 
 
     	},
@@ -156,21 +173,32 @@ $(document).ready(function(){
     		console.log(res);
     	}
     })
-
-	})
+}
 
 /*
 	SET THE VIEW
 */
 
+	function refresh(){
+		lastHash = "";
+		db_whjat_nodes().remove();
+        	db_edges().remove();
+        	$(".tile").empty();
+        	$("table").empty();
+        	alchemy = new Alchemy(config);
+        	populateTable()
+	}
+
+
 	$(".log").hide();
 	
-	$("#postAddy").val(jsonBlobAddy); // library address
+	//$("#postAddy").val(jsonBlobAddy); // library address
 	
 	var sidebar = true;
 	$("#title").click(function(){
 		$(".sidebar").toggle("slide");
 	})
+
 
 
 
@@ -998,11 +1026,13 @@ var config;
 			<button id = "uploadButton" class="btn">MAIL!</button><!--MALKUTH!-->
 		</div>
 		<div id="nav">
+<!--Kke !-->
+			<select>
+				<option value="7947cb51-5bad-11eb-8917-6dadd9cd50ea">propagate-info</option>
+			</select>
+			<input id="postAddy" placeholder="" type="text" class="form-control">			
 
-			<input id="postAddy" placeholder="" type="text" class="form-control" disabled>
-
-
-			<button class="btn" id="postAddyBtn">Cove</button>
+			<button class="btn" id="postAddyBtn">Random Cove</button>
 			<!--
 
 			<button class="btn" id="table"><a href="#">Table</a></button>
@@ -1054,6 +1084,7 @@ var config;
 		body{
 			background-color:white;
 			color:black;
+
 			font-family:Arial;
 			overflow-y:scroll;
 
@@ -1312,6 +1343,7 @@ var config;
 
 			/* ArES */
 			padding: 110px;
+			border-bottom:2px solid red;
 			
 			
 		}
