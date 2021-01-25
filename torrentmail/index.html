@@ -12,8 +12,6 @@ IF GET gives dupe torrent don't re-add
 
 DB ARCHITECTURE: IMMUTABLE TORRENT FILES STORE ADVANCING DB HELD TOGETHER BY CHAINLINK
 
-acid anger fade immune write aim lab there hard fat swift priority
-
 copyright storing torrent metadata to blockchain
 
  !-->
@@ -702,8 +700,8 @@ var config;
 			Seeds the files and names torrent file to APA style		
 		*/
 		client.seed($("#file")[0].files, {"name" : uploadToAPA()}, function(torrent){
-			blobAddy = $("#blob").val() ? $("#blob").val() : blobAddy;
-			console.log(blobAddy);
+			jsonBlobAddy = $("#blob").val() ? $("#blob").val() : jsonBlobAddy;
+		//	console.log(jsonBlobAddy);
 	$.ajax({
         url: "https://jsonblob.com/api/jsonBlob/" + blobAddy,
         type: 'PUT',
