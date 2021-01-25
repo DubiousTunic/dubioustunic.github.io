@@ -12,6 +12,8 @@ IF GET gives dupe torrent don't re-add
 
 DB ARCHITECTURE: IMMUTABLE TORRENT FILES STORE ADVANCING DB HELD TOGETHER BY CHAINLINK
 
+acid anger fade immune write aim lab there hard fat swift priority
+
 copyright storing torrent metadata to blockchain
 
  !-->
@@ -125,9 +127,20 @@ copyright storing torrent metadata to blockchain
 //TODO code rollback
 
 
+
 $(document).ready(function(){
 
 
+	$("#postAddy").click(function(){
+		$.ajax({
+        url: "https://jsonblob.com/api/jsonBlob",
+        type: 'POST',
+        success: function(res, status, xhr) {
+        	jsonBlobAddy = /[^/]*$/.exec(xhr.getResponseHeader('Location'))[0];
+    	}
+    })
+
+	})
 
 /*
 	SET THE VIEW
@@ -183,7 +196,7 @@ var client = new WebTorrent();
 	function seedRecentInfoHash(){
 	
 	$.ajax({
-        url: "https://jsonblob.com/api/jsonBlob/7947cb51-5bad-11eb-8917-6dadd9cd50ea",
+        url: "https://jsonblob.com/api/jsonBlob/" + JSONBlobAddy,
         type: 'GET',
         success: function(res) {
         	
@@ -961,22 +974,28 @@ var config;
 			<input class="form-control" id="uploadTitle" type="text" placeholder="title">
 			<input class="form-control" id="uploadPublisher" type="text" placeholder="publisher">
 			<input class="form-control" type="text" id="uploadDate" placeholder="date">
-			<p>Send to Address:</p>
+			<br><p>Send to Address:</p>
 			<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">
 			<button id = "uploadButton" class="btn">Send</button>
 		</div>
-		<!--ATHENA <div id="nav">
-			<button class="btn" id="tile"><a href="#">Tile</a></button>
+		<div id="nav">
+
+			<button class="btn" id="tile"><a href="#">Get Address</a></button>
+			<input id="postAddy" type="text" class="form-control" disabled>
+
+			<!--
+
 			<button class="btn" id="table"><a href="#">Table</a></button>
-			<button class="btn" id="graph"><a href="#">Graph</a></button>
+			<button class="btn" id="graph"><a href="#">Graph</a></button>    !-->
 		<!--	<button class="btn" id="log"><a href="#">My DLs</a></button> !-->
 		</div>
 		</div>
 		
 			
 		<div class="main">
+		<!--ATHENA !-->
 			<div class="page-header">
-				<h3>My Letters</h3>
+				<h3>My Mail</h3>
 			</div>
 			<div class="tile">
 
@@ -1056,7 +1075,7 @@ var config;
 			font-variant:small-caps;
 			font-family:"Yusei Magic", "Arial";
 			position:fixed;
-			font-size:40px;
+			font-size:45px;
 			float:left;
 			z-index:9999;
 			color:#66d9ff;
