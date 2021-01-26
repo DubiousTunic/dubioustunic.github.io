@@ -42,7 +42,9 @@ copyright storing torrent metadata to blockchain
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
 
-
+<script>
+//ferross code
+	!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{("undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this).dragDrop=e()}}(function(){return function(){return function e(t,r,n){function o(a,f){if(!r[a]){if(!t[a]){var u="function"==typeof require&&require;if(!f&&u)return u(a,!0);if(i)return i(a,!0);var l=new Error("Cannot find module '"+a+"'");throw l.code="MODULE_NOT_FOUND",l}var s=r[a]={exports:{}};t[a][0].call(s.exports,function(e){return o(t[a][1][e]||e)},s,s.exports,e,t,r,n)}return r[a].exports}for(var i="function"==typeof require&&require,a=0;a<n.length;a++)o(n[a]);return o}}()({1:[function(e,t,r){var n,o,i=t.exports={};function a(){throw new Error("setTimeout has not been defined")}function f(){throw new Error("clearTimeout has not been defined")}function u(e){if(n===setTimeout)return setTimeout(e,0);if((n===a||!n)&&setTimeout)return n=setTimeout,setTimeout(e,0);try{return n(e,0)}catch(t){try{return n.call(null,e,0)}catch(t){return n.call(this,e,0)}}}!function(){try{n="function"==typeof setTimeout?setTimeout:a}catch(e){n=a}try{o="function"==typeof clearTimeout?clearTimeout:f}catch(e){o=f}}();var l,s=[],c=!1,d=-1;function p(){c&&l&&(c=!1,l.length?s=l.concat(s):d=-1,s.length&&h())}function h(){if(!c){var e=u(p);c=!0;for(var t=s.length;t;){for(l=s,s=[];++d<t;)l&&l[d].run();d=-1,t=s.length}l=null,c=!1,function(e){if(o===clearTimeout)return clearTimeout(e);if((o===f||!o)&&clearTimeout)return o=clearTimeout,clearTimeout(e);try{o(e)}catch(t){try{return o.call(null,e)}catch(t){return o.call(this,e)}}}(e)}}function m(e,t){this.fun=e,this.array=t}function g(){}i.nextTick=function(e){var t=new Array(arguments.length-1);if(arguments.length>1)for(var r=1;r<arguments.length;r++)t[r-1]=arguments[r];s.push(new m(e,t)),1!==s.length||c||u(h)},m.prototype.run=function(){this.fun.apply(null,this.array)},i.title="browser",i.browser=!0,i.env={},i.argv=[],i.version="",i.versions={},i.on=g,i.addListener=g,i.once=g,i.off=g,i.removeListener=g,i.removeAllListeners=g,i.emit=g,i.prependListener=g,i.prependOnceListener=g,i.listeners=function(e){return[]},i.binding=function(e){throw new Error("process.binding is not supported")},i.cwd=function(){return"/"},i.chdir=function(e){throw new Error("process.chdir is not supported")},i.umask=function(){return 0}},{}],2:[function(e,t,r){t.exports=function(e,t){if("string"==typeof e){const t=e;if(!(e=window.document.querySelector(e)))throw new Error(`"${t}" does not match any HTML elements`)}if(!e)throw new Error(`"${e}" is not a valid HTML element`);"function"==typeof t&&(t={onDrop:t});let r;return e.addEventListener("dragenter",i,!1),e.addEventListener("dragover",a,!1),e.addEventListener("dragleave",f,!1),e.addEventListener("drop",u,!1),function(){l(),e.removeEventListener("dragenter",i,!1),e.removeEventListener("dragover",a,!1),e.removeEventListener("dragleave",f,!1),e.removeEventListener("drop",u,!1)};function i(e){return t.onDragEnter&&t.onDragEnter(e),e.stopPropagation(),e.preventDefault(),!1}function a(n){if(n.stopPropagation(),n.preventDefault(),t.onDragOver&&t.onDragOver(n),n.dataTransfer.items||n.dataTransfer.types){const e=Array.from(n.dataTransfer.items),r=Array.from(n.dataTransfer.types);let o,i;if(e.length?(o=e.filter(e=>"file"===e.kind),i=e.filter(e=>"string"===e.kind)):r.length&&(o=r.filter(e=>"Files"===e),i=r.filter(e=>e.startsWith("text/"))),0===o.length&&!t.onDropText)return;if(0===i.length&&!t.onDrop)return;if(0===o.length&&0===i.length)return}return e.classList.add("drag"),clearTimeout(r),n.dataTransfer.dropEffect="copy",!1}function f(e){return e.stopPropagation(),e.preventDefault(),t.onDragLeave&&t.onDragLeave(e),clearTimeout(r),r=setTimeout(l,50),!1}function u(e){e.stopPropagation(),e.preventDefault(),t.onDragLeave&&t.onDragLeave(e),clearTimeout(r),l();const i={x:e.clientX,y:e.clientY},a=e.dataTransfer.getData("text");if(a&&t.onDropText&&t.onDropText(a,i),t.onDrop&&e.dataTransfer.items){const r=e.dataTransfer.files,a=Array.from(e.dataTransfer.items).filter(e=>"file"===e.kind);if(0===a.length)return;n(a.map(e=>t=>{!function(e,t){let r=[];if(e.isFile)e.file(r=>{r.fullPath=e.fullPath,r.isFile=!0,r.isDirectory=!1,t(null,r)},e=>{t(e)});else if(e.isDirectory){const i=e.createReader();!function i(a){a.readEntries(f=>{f.length>0?(r=r.concat(Array.from(f)),i(a)):n(r.map(e=>t=>{o(e,t)}),(r,n)=>{r?t(r):(n.push({fullPath:e.fullPath,name:e.name,isFile:!1,isDirectory:!0}),t(null,n))})})}(i)}}(e.webkitGetAsEntry(),t)}),(e,n)=>{if(e)throw e;const o=n.flat(1/0),a=o.filter(e=>e.isFile),f=o.filter(e=>e.isDirectory);t.onDrop(a,i,r,f)})}return!1}function l(){e.classList.remove("drag")}};const n=e("run-parallel");function o(e,t){let r=[];if(e.isFile){e.file(r=>{r.fullPath=e.fullPath;r.isFile=true;r.isDirectory=false;t(null,r)},e=>{t(e)})}else if(e.isDirectory){const t=e.createReader();i(t)}function i(e){e.readEntries(t=>{if(t.length>0){r=r.concat(Array.from(t));i(e)}else{a()}})}function a(){n(r.map(e=>{return t=>{o(e,t)}}),(r,n)=>{if(r){t(r)}else{n.push({fullPath:e.fullPath,name:e.name,isFile:false,isDirectory:true});t(null,n)}})}}},{"run-parallel":3}],3:[function(e,t,r){(function(e){t.exports=function(t,r){var n,o,i,a=!0;Array.isArray(t)?(n=[],o=t.length):(i=Object.keys(t),n={},o=i.length);function f(t){function o(){r&&r(t,n),r=null}a?e.nextTick(o):o()}function u(e,t,r){n[e]=r,(0==--o||t)&&f(t)}o?i?i.forEach(function(e){t[e](function(t,r){u(e,t,r)})}):t.forEach(function(e,t){e(function(e,r){u(t,e,r)})}):f(null);a=!1}}).call(this,e("_process"))},{_process:1}]},{},[2])(2)});</script>
  <script type="text/javascript" type="text/javascript">
  //db
  </script>
@@ -53,7 +55,7 @@ copyright storing torrent metadata to blockchain
 
 	var lastHash = "70169f26bab340d30730d350ae1e78db9aacc578";
 
-	var hashTag; 
+	var torrentID; 
 
 	var db_whjat_nodes = TAFFY([
 	]);
@@ -64,11 +66,9 @@ copyright storing torrent metadata to blockchain
 	var db_edges = TAFFY([
 	])
 
-	var torrentComment;
-
 	function tabFile(){
 		console.log(document.location);
-		window.open(document.location.pathname + "#" + hashTag)
+		window.open(document.location.pathname + "#" + torrentID)
 	}
 
 
@@ -110,13 +110,12 @@ $(document).ready(function(){
 
 	//controller
 
-	$("#postAddy").val("7947cb51-5bad-11eb-8917-6dadd9cd50ea")
+	$("#blob").val("7947cb51-5bad-11eb-8917-6dadd9cd50ea")
 
 	var hashe = document.location.hash;
 
 	$("#postAddy").change(function(){
 		jsonBlobAddy = $("#postAddy").val();
-		refresh();
 	})
 
 	var jsonBlobAddy;
@@ -130,46 +129,26 @@ $(document).ready(function(){
 		console.log(jsonBlobAddy);
 	}
 
-	$("#postAddy").val(jsonBlobAddy);
+
 
 	$("#postAddyBtn").click(function(){
-		getNewAddress();
-	})
-
-
-	/* KeK */
-	$("select").change(function(){
-		var val = $(this).val();
-		$("#postAddy").val(val);
 		
-	})
-
-
-/*ATHENA*/
-function getNewAddress(){
-	$.ajax({
+		$.ajax({
         url: "https://jsonblob.com/api/jsonBlob",
         type: 'POST',
         contentType : 'application/JSON',
-        data : '{"infoHash" : "' + lastHash + '" }',
+        data : '{"infoHash" : "' + lastHash + '"}',
         success: function(res, status, xhr) {
         	console.log("success");
-        	//if(!jsonBlobAddy){
-        		lastHash = "";
-        		jsonBlobAddy = /[^/]*$/.exec(xhr.getResponseHeader('Location'))[0];
-
-        	$("select").append("<option value='" + jsonBlobAddy + "'>" + jsonBlobAddy + "</option>")
-        	//}
-        	
+        	jsonBlobAddy = /[^/]*$/.exec(xhr.getResponseHeader('Location'))[0];
+        	lastHash = "";
         	$("#postAddy").val(jsonBlobAddy);
-        	//kek
-
-	$('option').filter(function() { 
-    	return ($(this).text() == jsonBlobAddy); //To select Blue
-	}).prop('selected', true);
-        
-        refresh();
-        return jsonBlobAddy;
+        	db_whjat_nodes().remove();
+        	db_edges().remove();
+        	$(".tile").empty();
+        	$("table").empty();
+        	alchemy = new Alchemy(config);
+        	populateTable()
 
 
     	},
@@ -177,35 +156,21 @@ function getNewAddress(){
     		console.log(res);
     	}
     })
-}
+
+	})
 
 /*
 	SET THE VIEW
 */
 
-	$(".nodeClick").click(function(){
-		client.add($(this).attr("href").substr(1), onTorrent());
-	})
-
-	function refresh(){
-		db_whjat_nodes().remove();
-        	db_edges().remove();
-        	$(".tile").empty();
-        	$("table").empty();
-        	alchemy = new Alchemy(config);
-        	populateTable({})
-	}
-
-
 	$(".log").hide();
 	
-	//$("#postAddy").val(jsonBlobAddy); // library address
+	$("#postAddy").val(jsonBlobAddy); // library address
 	
 	var sidebar = true;
-	$("#title").click(function(){
+	$(".hamburger").click(function(){
 		$(".sidebar").toggle("slide");
 	})
-
 
 
 
@@ -337,8 +302,7 @@ var client = new WebTorrent();
 			var ext = node.ext;
 
 			console.log(ext)
-			/*ATHENA*/
-			var str = "<a class='nodeClick' href='#" + node.infoHash + "'>." + ext + "</a>";
+			var str = "<a target='_blank' href='#" + node.infoHash + "'>." + ext + "</a>";
 
 			//make download
 
@@ -367,7 +331,7 @@ var client = new WebTorrent();
 
 
 
-						$('.tile').append("<div class='tileSquare'><img id='tileIMG-" + i + "' src='https://picsum.photos/200/300?" + i + "' class='img-responsive'><a class='nodeClick' href='#" + node.infoHash + "'><span>" + node.name + "</span></a><br><p>" + node.comment + ". </p></div>")
+						$('.tile').prepend("<div class='tileSquare'><img id='tileIMG-" + i + "' src='https://picsum.photos/200/300?" + i + "' class='img-responsive'><a target='_blank' class='nodeClick' href='#" + node.infoHash + "'><span>" + node.author + node.ext+ "</span></a></div>")
 
 /* deprecated
 			var tileIMG = $("#tileIMG"); //$(".tile").lastChild(".tileSquare").first("img");
@@ -385,13 +349,10 @@ var client = new WebTorrent();
 			}
 
 
+			//populate table
+			table.row.add([node.author + ".", node.date + ".", node.title + ".", node.publisher + ".", node.numPeers, str]).draw();
+
 */
-
-		
-		//populate table
-		table.row.add([node.author + ".", node.date + ".", node.title + ".", node.publisher + ".", node.numPeers, str]).draw();
-
-
 			/*ATHENA */
 	  	$(".dataTable").on("click", "nodeClick", function(){
 				var a = $(this).attr("href");
@@ -440,7 +401,44 @@ var config;
 		return "magnet:?xt=urn:btih:" +  hash  + "&dn=db.json&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337&tr=udp%3A%2F%2Fexplodie.org%3A6969&tr=udp%3A%2F%2Ftracker.empire-js.us%3A1337&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com"; // from chainlink db	
 	}
 
+	//deprecated
+	function getDB(){
+	 	//query chainlink
+	 	var infoHash = lastHash;
+	 	//CHAINLINK ADDRESS GOES HERE
+
+	 	//chainlink gives infoHash
+
+	 	//store magnetURIvar infohash = ""; //json torrent infohash
+		var client = new WebTorrent()
+		var magnetURI = hashToMagnet(infoHash);
+		client.add(magnetURI, {private : true }, function (torrent) { 
+
+		  torrent.files.forEach(function (file) { 
+		  	if(file.name.endsWith('.json')){			  		
+			    file.getBuffer(function (err, buffer) {
+				if (err) throw err
+				var jsonstring = decodeUtf8(buffer);
+				db = JSON.parse(jsonstring);
+				
+
+				//f(document.location.hash === "" || document.location.hash === "#"){
 	
+				
+
+					populateTable(torrent);
+					//$("#alchemy").show()
+					//alchemy = new Alchemy(config);
+				//}
+				console.log(db); //json data
+							  
+				client.destroy();
+			    })
+		  	}
+		  })
+		})
+
+	 }
 
 		function decodeUtf8(s) {
 		  return decodeURIComponent(escape(s));
@@ -539,7 +537,7 @@ var config;
 
 	}
 */
-	hashTag = document.location.hash.substring(1);
+	torrentID = document.location.hash.substring(1);
 	client.on('error', function (err) {
         console.error('ERROR: ' + err.message)
       })
@@ -547,7 +545,6 @@ var config;
      
 
       function onTorrent (torrent) {
-      	console.log(torrent.comment);
         log('Got torrent metadata!')
         log(
           'Torrent info hash: ' + torrent.infoHash + ' ' +
@@ -577,12 +574,19 @@ var config;
    		})
     }
 
-	//if(hashTag.indexOf('$') > -1) {
-		
-       // log('Adding ' + hashTag)
-	     client.add(hashToMagnet(hashTag.substring(1)), {"private" : true }, onTorrent);
+	if(torrentID !== "" && torrentID !== "#") {
+		console.log(torrentID);
+		//$("#alchemy").hide();
+		//$(".log").show();
+		//$(".tile").hide();
+		//$(".browse").hide();
 
-	
+		$(".tile").hide();
+		$(".log").show();
+       // log('Adding ' + torrentID)
+	     client.add(hashToMagnet(torrentID), {"private" : true }, onTorrent);
+
+	}
 	table = $("table").DataTable({
 		responsive:true,
 		columnDefs : [
@@ -655,12 +659,12 @@ var config;
 
 
 		//parse URI
-		//hashTag = document.location.hash.substring(1);
+		//torrentID = document.location.hash.substring(1);
 		//downloadTorrent();
 		window.onhashchange = function(){
-    		hashTag = hashToMagnet(document.location.hash); //.substring(1));
+    		torrentID = hashToMagnet(document.location.hash.substring(1));
    			//$("#text").val(magnetURI);
-   			//hashTag = magnetURI;
+   			//torrentID = magnetURI;
         }
 
 		//upload files, generate URI
@@ -710,10 +714,10 @@ var config;
 	$("#uploadButton").click(function(){
 	
  		/* 
-			Seeds the files and [deprecated] names torrent file to APA style		
+			Seeds the files and names torrent file to APA style		
 		*/
-		client.seed($("#file")[0].files, {"comment" : $("#upload").val()}, function(torrent){
-			jsonBlobAddy = $("#postAddy").val(); // ? $("#blob").val() : jsonBlobAddy;
+		client.seed($("#file")[0].files, {"name" : uploadToAPA()}, function(torrent){
+			jsonBlobAddy = $("#blob").val(); // ? $("#blob").val() : jsonBlobAddy;
 			console.log(jsonBlobAddy);
 	$.ajax({
         url: "https://jsonblob.com/api/jsonBlob/" + jsonBlobAddy,
@@ -814,7 +818,6 @@ var config;
 		//point to infoHash of last uploaded torrent
 		whjat.id = Date.now();
 	//	whjat.lastHash = lastHash;
-		whjat.comment = torrent.comment
 		whjat.infoHash = torrent.infoHash;
 		whjat.numPeers = torrent.numPeers;
 
@@ -825,7 +828,6 @@ var config;
 
 		db_whjat_nodes.insert(whjat);
 
-		whjat.name = torrent.name;
 
 		torrent.swarm.wires.forEach(function (wire) {
 			console.log(wire);
@@ -888,12 +890,12 @@ var config;
 						},
 						nodeClick : function(node){
 							console.log(node);
-							hashTag = node._properties.infoHash;
-							tabFile();
+							torrentID = node._properties.infoHash;
+							//tabFile();
 
 							//find this torrent and select it
 							client.torrents.forEach(function(torrent){
-								if(torrent.infoHash === hashTag){
+								if(torrent.infoHash === torrentID){
 									torrent.select(0, torrent.pieces.length - 1, false);
 
 									torrent.files.forEach(function(file){
@@ -902,7 +904,7 @@ var config;
 									onTorrent(torrent);								
 								}
 							})
-						//	client.add(hashToMagnet(hashTag), onTorrent);
+						//	client.add(hashToMagnet(torrentID), onTorrent);
 							//downloadTorrent(magnetURI);
 						}
 						/*,
@@ -957,7 +959,7 @@ var config;
  </head>
  <body>
 	 <!--!-->
-		<h1 id="title"><a href="#">propagate.info</a></h1>		
+		<a href="#" class="hamburger"> &#9776; </a><h1 id="title">propagate.info</h1>		
 	 		
 	 	<div class="sidebar">
 			
@@ -968,37 +970,39 @@ var config;
 			<br><br><br>
 			<div id="settingsPageHeader" class="page-header">
 				<!--ATHENA!-->
-					<h3>mailto:</h3>
-				</div>
-
-			<!--ATHENA !-->
-			<div class="page-header">
-				<h3>Upload Attachment</h3>
-			</div>
+					<h3>My Attachment</h3>
+				</div>		
 		<div class="upload">					
-			<!--ARES!-->
-			<p>info:</p>
-			<input id="postAddy" disabled placeholder="7947cb51-5bad-11eb-8917-6dadd9cd50ea" type="text" class="form-control">			
-			<textarea id="upload" class="form-control"></textarea>
-			<!--<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">!-->
-			<br>
-
 			<input type="file" id="file" multiple name="files" class="form-control" id="customFile" />				
-			<!--deprecated <input class="form-control" id="uploadAuthor" type="text" placeholder="last name, initials">
+			<input class="form-control" id="uploadAuthor" type="text" placeholder="last name, initials">
 			<input class="form-control" id="uploadTitle" type="text" placeholder="title">
 			<input class="form-control" id="uploadPublisher" type="text" placeholder="publisher">
 			<input class="form-control" type="text" id="uploadDate" placeholder="date">
 			
+			<!--ARES!-->
 
-			MALKUTH!-->
-			
-			<button id = "uploadButton" class="btn">PROPAGATE!</button>
+			<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">
+
+			<button id = "uploadButton" class="btn">MAIL!</button><!--MALKUTH!-->
 		</div>
-		<!--SEYMOUR !-->
-		
+		<div id="nav">
+
+			<button class="btn" id="postAddyBtn">Address</button>
+			<input id="postAddy" placeholder="" type="text" class="form-control" disabled>
+
+			<!--
+
+			<button class="btn" id="table"><a href="#">Table</a></button>
+			<button class="btn" id="graph"><a href="#">Graph</a></button>    !-->
+		<!--	<button class="btn" id="log"><a href="#">My DLs</a></button> !-->
+		</div>
 		</div>
 		
 			
+		<!--ATHENA !-->
+			<div class="page-header">
+				<h3>Browse Subject Chain</h3>
+			</div>
 			<div class="tile">
 			</div>
 			<div class="browse">
@@ -1024,7 +1028,7 @@ var config;
 				<div class="alchemy" id = "alchemy">			
 				</div>
 			</div>
-			<br><br><br><!--ARES!-->
+
 			<div class="log"><br><br><br></div>
 				
 		
@@ -1041,28 +1045,21 @@ var config;
 		body{
 			background-color:white;
 			color:black;
-
 			font-family:Arial;
 			overflow-y:scroll;
 
-			background-color:#a69144;
-
-		}
-
-	
-
-		a{
+			background-color:#33cccc;
+			background-color:black;
 			color:red;
-			font-family:sans-serif;
+;
+
 		}
 
-	/*ATHENA */
-	#title a{
-		color:#ff6666;
-		text-decoration:underline;
-		letter-spacing:2px; /* ARES */
-		font-family:"Yusei Magic", Arial;
-	}
+		a{/*THENA */
+			color:green;
+			color:#0099ff;
+
+		}
 
 		a:hover{
 			color:brown;
@@ -1100,11 +1097,12 @@ var config;
 			font-variant:small-caps;
 			font-family:"Yusei Magic", "Arial";
 			position:fixed;
-			font-size:75px;
+			font-size:45px;
 			float:left;
 			/* ATHENA patent */
 			z-index:9998;
 			color: #ffff1a;
+			color: orange;
 			text-align:center;
 			width:31%;
 
@@ -1123,10 +1121,10 @@ var config;
 
 		}
 
-		/*AthENA */
+		
 		.upload{
 			position:fixed;
-			margin-top:255px;
+			margin-top:12px;
 			width:inherit;
 			text-align:center;
 		}
@@ -1134,7 +1132,7 @@ var config;
 
 		.upload input{
 			margin:0 auto;
-			width:85%;
+			width:100%;
 		}
 
 		.table{
@@ -1146,7 +1144,7 @@ var config;
 			position:fixed;
 			text-align:center;
 			width:inherit;
-			top:123px;
+			bottom:0px;
 		}
 
 
@@ -1182,7 +1180,7 @@ var config;
 		 	right:0;
 			position:relative;
 			z-index:4;
-			/*display:none;*/
+			display:none;
 			margin:0 auto;
 
 		}
@@ -1203,10 +1201,6 @@ var config;
 			font-family:Georgia;
 			position:fixed;
 			float:left;
-			padding:0;
-
-			margin:0px;
-			top:350px;
 			text-align:center;
 			width:31%;
 			z-index:9996;
@@ -1215,8 +1209,6 @@ var config;
 
 		/* ATHENA */ 
 		#settingsPageHeader h3{
-			position:absolute;
-			top:-24;
 		}
 
 		.off-canvas div{
@@ -1239,13 +1231,12 @@ var config;
 		.sidebar{
 			width:31%;
 			display:none;
-			z-index:9997;
+			z-index:9998;
 			border-right:2px solid #CDcDcD;
 			position:fixed;
 			background-color:#ffff66;
 			float:left;
 			height:100%;
-			top:0;
 		}
 
 		.mediaWidget{
@@ -1280,7 +1271,6 @@ var config;
 
 		}
 
-
 		.browse{		
 			height:100%;	
 			width:calc(100% - 100px);
@@ -1288,12 +1278,21 @@ var config;
 			position:relative;
 			margin-left:50px;
 			z-index:3;
-			/*display:none;*/
+			display:none;
 			
 		}
 
+/*		table.dataTable {
+			width:34%;
+		}
+
+		table{
+			max-width:34%;
+		}
+*/
+
 /*
-	kek
+	
 */
 		
 		.tile{
@@ -1304,9 +1303,9 @@ var config;
 
 			/* ArES */
 			padding: 110px;
-			border-bottom:2px solid red;
-			
-			
+			position:absolute;
+			top:0;
+			z-index:4;
 		}
 
 		.tile div{
@@ -1316,28 +1315,18 @@ var config;
 			width:200px;
 			height:300px;
 			padding:25px;
-			overflow-y:auto;
-			overflow-x:hidden;
-			border-bottom:1px solid #EFEFEF;
-		}
 
-		.tileSquare{
-			text-align:center;
+			border-bottom:1px solid #EFEFEF;
 		}
 
 		.tileSquare img{
 			text-align:center;
-			margin:0 auto;
-			width:125px;
-			height:173px;
-			/* PP */ 
-			padding:32px;
+			width:80px;
+			height:133px;
+			padding:7px;
 		}
 
-		.tile span, .tile p{
-			width:160px;
-			text-align:center;
-		}
+
 		
 
 		.media{
