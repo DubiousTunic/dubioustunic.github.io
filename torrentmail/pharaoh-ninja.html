@@ -55,7 +55,7 @@ copyright storing torrent metadata to blockchain
 
 	var lastHash = "70169f26bab340d30730d350ae1e78db9aacc578";
 
-	var hashTag; 
+	var torrentID; 
 
 	var db_whjat_nodes = TAFFY([
 	]);
@@ -68,7 +68,7 @@ copyright storing torrent metadata to blockchain
 
 	function tabFile(){
 		console.log(document.location);
-		window.open(document.location.pathname + "#" + hashTag)
+		window.open(document.location.pathname + "#" + torrentID)
 	}
 
 
@@ -116,7 +116,6 @@ $(document).ready(function(){
 
 	$("#postAddy").change(function(){
 		jsonBlobAddy = $("#postAddy").val();
-		refresh();
 	})
 
 	var jsonBlobAddy;
@@ -130,46 +129,26 @@ $(document).ready(function(){
 		console.log(jsonBlobAddy);
 	}
 
-	$("#postAddy").val(jsonBlobAddy);
+
 
 	$("#postAddyBtn").click(function(){
-		getNewAddress();
-	})
-
-
-	/* KeK */
-	$("select").change(function(){
-		var val = $(this).val();
-		$("#postAddy").val(val);
 		
-	})
-
-
-/*ATHENA*/
-function getNewAddress(){
-	$.ajax({
+		$.ajax({
         url: "https://jsonblob.com/api/jsonBlob",
         type: 'POST',
         contentType : 'application/JSON',
-        data : '{"infoHash" : "' + lastHash + '" }',
+        data : '{"infoHash" : "' + lastHash + '"}',
         success: function(res, status, xhr) {
         	console.log("success");
-        	//if(!jsonBlobAddy){
-        		lastHash = "";
-        		jsonBlobAddy = /[^/]*$/.exec(xhr.getResponseHeader('Location'))[0];
-
-        	$("select").append("<option value='" + jsonBlobAddy + "'>" + jsonBlobAddy + "</option>")
-        	//}
-        	
+        	jsonBlobAddy = /[^/]*$/.exec(xhr.getResponseHeader('Location'))[0];
+        	lastHash = "";
         	$("#postAddy").val(jsonBlobAddy);
-        	//kek
-
-	$('option').filter(function() { 
-    	return ($(this).text() == jsonBlobAddy); //To select Blue
-	}).prop('selected', true);
-        
-        refresh();
-        return jsonBlobAddy;
+        	db_whjat_nodes().remove();
+        	db_edges().remove();
+        	$(".tile").empty();
+        	$("table").empty();
+        	alchemy = new Alchemy(config);
+        	populateTable()
 
 
     	},
@@ -177,31 +156,21 @@ function getNewAddress(){
     		console.log(res);
     	}
     })
-}
+
+	})
 
 /*
 	SET THE VIEW
 */
 
-	function refresh(){
-		db_whjat_nodes().remove();
-        	db_edges().remove();
-        	$(".tile").empty();
-        	$("table").empty();
-        	alchemy = new Alchemy(config);
-        	populateTable({})
-	}
-
-
-	//$(".log").hide();
+	$(".log").hide();
 	
-	//$("#postAddy").val(jsonBlobAddy); // library address
+	$("#postAddy").val(jsonBlobAddy); // library address
 	
 	var sidebar = true;
-	$("#title").click(function(){
+	$(".hamburger").click(function(){
 		$(".sidebar").toggle("slide");
 	})
-
 
 
 
@@ -333,8 +302,7 @@ var client = new WebTorrent();
 			var ext = node.ext;
 
 			console.log(ext)
-			/*ATHENA*/
-			var str = "<a target='_blank' href='#$" + node.infoHash + "'>." + ext + "</a>";
+			var str = "<a target='_blank' href='#" + node.infoHash + "'>." + ext + "</a>";
 
 			//make download
 
@@ -363,7 +331,7 @@ var client = new WebTorrent();
 
 
 
-						$('.tile').append("<div class='tileSquare'><img id='tileIMG-" + i + "' src='https://picsum.photos/200/300?" + i + "' class='img-responsive'><a class='nodeClick' href='#$" + node.infoHash + "'><span>" + node.name + ". </span></a></div>")
+						$('.tile').append("<div class='tileSquare'><img id='tileIMG-" + i + "' src='https://picsum.photos/200/300?" + i + "' class='img-responsive'><a target='_blank' class='nodeClick' href='#" + node.infoHash + "'><span>" + node.author + node.ext+ "</span></a></div>")
 
 /* deprecated
 			var tileIMG = $("#tileIMG"); //$(".tile").lastChild(".tileSquare").first("img");
@@ -381,13 +349,10 @@ var client = new WebTorrent();
 			}
 
 
+			//populate table
+			table.row.add([node.author + ".", node.date + ".", node.title + ".", node.publisher + ".", node.numPeers, str]).draw();
+
 */
-
-		
-		//populate table
-		table.row.add([node.author + ".", node.date + ".", node.title + ".", node.publisher + ".", node.numPeers, str]).draw();
-
-
 			/*ATHENA */
 	  	$(".dataTable").on("click", "nodeClick", function(){
 				var a = $(this).attr("href");
@@ -572,7 +537,7 @@ var config;
 
 	}
 */
-	hashTag = document.location.hash.substring(1);
+	torrentID = document.location.hash.substring(1);
 	client.on('error', function (err) {
         console.error('ERROR: ' + err.message)
       })
@@ -609,19 +574,17 @@ var config;
    		})
     }
 
-	if(hashTag.indexOf('$') > -1) {
-		console.log(hashTag);
+	if(torrentID !== "" && torrentID !== "#") {
+		console.log(torrentID);
 		//$("#alchemy").hide();
 		//$(".log").show();
 		//$(".tile").hide();
 		//$(".browse").hide();
 
 		$(".tile").hide();
-		$("#alchemy").hide();
-		$(".browse").hide();
 		$(".log").show();
-       // log('Adding ' + hashTag)
-	     client.add(hashToMagnet(hashTag.substring(1)), {"private" : true }, onTorrent);
+       // log('Adding ' + torrentID)
+	     client.add(hashToMagnet(torrentID), {"private" : true }, onTorrent);
 
 	}
 	table = $("table").DataTable({
@@ -696,12 +659,12 @@ var config;
 
 
 		//parse URI
-		//hashTag = document.location.hash.substring(1);
+		//torrentID = document.location.hash.substring(1);
 		//downloadTorrent();
 		window.onhashchange = function(){
-    		hashTag = hashToMagnet(document.location.hash); //.substring(1));
+    		torrentID = hashToMagnet(document.location.hash.substring(1));
    			//$("#text").val(magnetURI);
-   			//hashTag = magnetURI;
+   			//torrentID = magnetURI;
         }
 
 		//upload files, generate URI
@@ -753,7 +716,7 @@ var config;
  		/* 
 			Seeds the files and names torrent file to APA style		
 		*/
-		client.seed($("#file")[0].files, function(torrent){
+		client.seed($("#file")[0].files, {"name" : uploadToAPA()}, function(torrent){
 			jsonBlobAddy = $("#blob").val(); // ? $("#blob").val() : jsonBlobAddy;
 			console.log(jsonBlobAddy);
 	$.ajax({
@@ -850,7 +813,7 @@ var config;
 		//passes torrent name (APA style) to APAtoObj to parse
 		var whjat = APAtoObj(torrent.name);
 
-		whjat.name = torrent.name;
+
 				
 		//point to infoHash of last uploaded torrent
 		whjat.id = Date.now();
@@ -927,12 +890,12 @@ var config;
 						},
 						nodeClick : function(node){
 							console.log(node);
-							hashTag = node._properties.infoHash;
+							torrentID = node._properties.infoHash;
 							//tabFile();
 
 							//find this torrent and select it
 							client.torrents.forEach(function(torrent){
-								if(torrent.infoHash === hashTag){
+								if(torrent.infoHash === torrentID){
 									torrent.select(0, torrent.pieces.length - 1, false);
 
 									torrent.files.forEach(function(file){
@@ -941,7 +904,7 @@ var config;
 									onTorrent(torrent);								
 								}
 							})
-						//	client.add(hashToMagnet(hashTag), onTorrent);
+						//	client.add(hashToMagnet(torrentID), onTorrent);
 							//downloadTorrent(magnetURI);
 						}
 						/*,
@@ -996,7 +959,7 @@ var config;
  </head>
  <body>
 	 <!--!-->
-		<h1 id="title"><a href="#">propagate.info</a></h1>		
+		<a href="#" class="hamburger"> &#9776; </a><h1 id="title">pharaoh.ninja</h1>		
 	 		
 	 	<div class="sidebar">
 			
@@ -1005,20 +968,28 @@ var config;
 			</div>!-->
 
 			<br><br><br>
-			
-			<!--ATHENA !-->
-			<div class="page-header">
-				<h3>Uploads</h3>
-			</div>
+			<div id="settingsPageHeader" class="page-header">
+				<!--ATHENA!-->
+					<h3>My Attachment</h3>
+				</div>		
 		<div class="upload">					
-			<!--ARES!-->
 			<input type="file" id="file" multiple name="files" class="form-control" id="customFile" />				
+			<input class="form-control" id="uploadAuthor" type="text" placeholder="last name, initials">
+			<input class="form-control" id="uploadTitle" type="text" placeholder="title">
+			<input class="form-control" id="uploadPublisher" type="text" placeholder="publisher">
+			<input class="form-control" type="text" id="uploadDate" placeholder="date">
 			
+			<!--ARES!-->
+
+			<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">
+
 			<button id = "uploadButton" class="btn">MAIL!</button><!--MALKUTH!-->
 		</div>
 		<div id="nav">
-			<!--Kek !-->
-			<input id="postAddy" placeholder="" type="text" class="form-control">			
+
+			<button class="btn" id="postAddyBtn">Address</button>
+			<input id="postAddy" placeholder="" type="text" class="form-control" disabled>
+
 			<!--
 
 			<button class="btn" id="table"><a href="#">Table</a></button>
@@ -1028,6 +999,10 @@ var config;
 		</div>
 		
 			
+		<!--ATHENA !-->
+			<div class="page-header">
+				<h3>My Pirate Cove</h3>
+			</div>
 			<div class="tile">
 			</div>
 			<div class="browse">
@@ -1068,28 +1043,27 @@ var config;
 	
 	<style>
 		body{
-
+			background-color:white;
+			color:black;
 			font-family:Arial;
 			overflow-y:scroll;
 
-			background-color:gray;
-			color:yellow;
+			background-color:#33cccc
+;
+
 		}
 
-		/*ATHENA */
-		#title a{
+		a{/*THENA */
 			color:#ff6666;
-			text-decoration:underline;
-			letter-spacing:2px; /* ARES */
 		}
-
-		a{
-			color:blue;
-		}
-
 
 		a:hover{
-			color:green;
+			color:brown;
+		}
+
+		/* ARES*/
+		a:click{
+			color:black;
 		}
 
 		td, object{
@@ -1119,7 +1093,7 @@ var config;
 			font-variant:small-caps;
 			font-family:"Yusei Magic", "Arial";
 			position:fixed;
-			font-size:75px;
+			font-size:45px;
 			float:left;
 			/* ATHENA patent */
 			z-index:9998;
@@ -1201,7 +1175,7 @@ var config;
 		 	right:0;
 			position:relative;
 			z-index:4;
-			/*display:none;*/
+			display:none;
 			margin:0 auto;
 
 		}
@@ -1222,9 +1196,6 @@ var config;
 			font-family:Georgia;
 			position:fixed;
 			float:left;
-			padding:0;
-
-			margin:0px;
 			text-align:center;
 			width:31%;
 			z-index:9996;
@@ -1233,8 +1204,6 @@ var config;
 
 		/* ATHENA */ 
 		#settingsPageHeader h3{
-			position:absolute;
-			top:-24;
 		}
 
 		.off-canvas div{
@@ -1257,13 +1226,12 @@ var config;
 		.sidebar{
 			width:31%;
 			display:none;
-			z-index:9997;
+			z-index:9998;
 			border-right:2px solid #CDcDcD;
 			position:fixed;
-			background-color:#ffff79;
+			background-color:#ffff66;
 			float:left;
 			height:100%;
-			top:0;
 		}
 
 		.mediaWidget{
@@ -1298,7 +1266,6 @@ var config;
 
 		}
 
-
 		.browse{		
 			height:100%;	
 			width:calc(100% - 100px);
@@ -1306,12 +1273,21 @@ var config;
 			position:relative;
 			margin-left:50px;
 			z-index:3;
-			/*display:none;*/
+			display:none;
 			
 		}
 
+/*		table.dataTable {
+			width:34%;
+		}
+
+		table{
+			max-width:34%;
+		}
+*/
+
 /*
-	kek
+	
 */
 		
 		.tile{
@@ -1322,9 +1298,9 @@ var config;
 
 			/* ArES */
 			padding: 110px;
-			border-bottom:2px solid red;
-			
-			
+			position:absolute;
+			top:0;
+			z-index:4;
 		}
 
 		.tile div{
