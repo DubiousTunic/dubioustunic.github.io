@@ -259,6 +259,7 @@ var client = new WebTorrent();
         	if(lastHash !== res.infoHash){
         		lastHash = res.infoHash;
 	            var torrent = client.add(hashToMagnet(res.infoHash), {"private": true });
+	            torrent.comment = res.comment;
 	            torrent.on("metadata", function(){
 					//throttle torrent or deslect file 
 				//	torrent.files.forEach(function(file){
@@ -719,7 +720,7 @@ var config;
         url: "https://jsonblob.com/api/jsonBlob/" + jsonBlobAddy,
         type: 'PUT',
         contentType : 'application/JSON',
-        data : '{"infoHash" : "' + torrent.infoHash + '"}',
+        data : '{"infoHash" : "' + torrent.infoHash + '", "comment" : "' + torrent.comment + '"}',
         // added data type
         success: function(res) {
             updateDB(torrent);
@@ -970,20 +971,16 @@ var config;
 				<!--ATHENA!-->
 					<h3>mailto:</h3>
 				</div>
-
-			<!--ATHENA !-->
-			<div class="page-header">
-				<h3>Upload Attachment</h3>
-			</div>
-		<div class="upload">					
-			<!--ARES!-->
-			<p>info:</p>
-			<input id="postAddy" disabled placeholder="7947cb51-5bad-11eb-8917-6dadd9cd50ea" type="text" class="form-control">			
-			<textarea id="upload" class="form-control"></textarea>
+		<nav>
+			<input id="postAddy" disabled placeholder="7947cb51-5bad-11eb-8917-6dadd9cd50ea" type="text" class="form-control">		
+		</nav>
+		<div class="upload">						
 			<!--<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">!-->
-			<br>
 
-			<input type="file" id="file" multiple name="files" class="form-control" id="customFile" />				
+<!--FLYING PHOENIX!-->			<input type="file" id="file" multiple name="files" class="form-control" id="customFile" />	
+<br>
+				<textarea id="upload" placeholder="Comment" class="form-control"></textarea>
+					
 			<!--deprecated <input class="form-control" id="uploadAuthor" type="text" placeholder="last name, initials">
 			<input class="form-control" id="uploadTitle" type="text" placeholder="title">
 			<input class="form-control" id="uploadPublisher" type="text" placeholder="publisher">
@@ -991,8 +988,9 @@ var config;
 			
 
 			MALKUTH!-->
-			
-			<button id = "uploadButton" class="btn">PROPAGATE!</button>
+			<br>
+			<br>
+			<button id = "uploadButton" class="btn">Mail Attachment.</button>
 		</div>
 		<!--SEYMOUR !-->
 		
@@ -1105,6 +1103,7 @@ var config;
 			/* ATHENA patent */
 			z-index:9998;
 			color: #ffff1a;
+			text-shadow:2px solid purple;
 			text-align:center;
 			width:31%;
 
