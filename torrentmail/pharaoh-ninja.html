@@ -361,9 +361,7 @@ var client = new WebTorrent();
 
 
  i++;
-if(node.comment === null){
-	node.comment = "";
-}
+
 			//gr8 hacking
 			
 
@@ -700,11 +698,13 @@ var config;
 	$("#file").change(function(){
 		var file = APAtoObj($(this).val());
 
-	/* deprecated	$("#uploadTitle").val(file.title);
+		$("#uploadTitle").val(file.title);
 		$("#uploadAuthor").val(file.author.replace(/^.*[\\\/]/, ''));
 		$("#uploadDate").val(file.date.slice(1,-1));
-		$("#uploadPublisher").val(file.publisher); */
+		$("#uploadPublisher").val(file.publisher);
 	})
+
+
 
 
 	$("#uploadButton").click(function(){
@@ -719,7 +719,7 @@ var config;
         url: "https://jsonblob.com/api/jsonBlob/" + jsonBlobAddy,
         type: 'PUT',
         contentType : 'application/JSON',
-        data : '{"infoHash" : "' + torrent.infoHash + ', "comment" : "' + torrent.comment + '"}',
+        data : '{"infoHash" : "' + torrent.infoHash + '"}',
         // added data type
         success: function(res) {
             updateDB(torrent);
@@ -971,16 +971,19 @@ var config;
 					<h3>mailto:</h3>
 				</div>
 
-			
-		<!-- ARES MINIMALISM
-		!-->
+			<!--ATHENA !-->
+			<div class="page-header">
+				<h3>Upload Attachment</h3>
+			</div>
 		<div class="upload">					
-			
-
-
-			<input type="file" id="file" multiple name="files" class="form-control" id="customFile" />	
+			<!--ARES!-->
+			<p>info:</p>
+			<input id="postAddy" disabled placeholder="7947cb51-5bad-11eb-8917-6dadd9cd50ea" type="text" class="form-control">			
 			<textarea id="upload" class="form-control"></textarea>
-			
+			<!--<input class="form-control" type="text" id="blob" placeholder = "7947cb51-5bad-11eb-8917-6dadd9cd50ea">!-->
+			<br>
+
+			<input type="file" id="file" multiple name="files" class="form-control" id="customFile" />				
 			<!--deprecated <input class="form-control" id="uploadAuthor" type="text" placeholder="last name, initials">
 			<input class="form-control" id="uploadTitle" type="text" placeholder="title">
 			<input class="form-control" id="uploadPublisher" type="text" placeholder="publisher">
@@ -989,13 +992,10 @@ var config;
 
 			MALKUTH!-->
 			
-			<button id = "uploadButton" class="btn">mailto bitchain</button>
+			<button id = "uploadButton" class="btn">PROPAGATE!</button>
 		</div>
-		<!--PHOENIX maneuver !-->
-		<nav>
-			<input id="postAddy" disabled placeholder="7947cb51-5bad-11eb-8917-6dadd9cd50ea" type="text" class="form-control">
-		</nav>
-
+		<!--SEYMOUR !-->
+		
 		</div>
 		
 			
@@ -1146,7 +1146,7 @@ var config;
 			position:fixed;
 			text-align:center;
 			width:inherit;
-			bottom:0;
+			top:123px;
 		}
 
 
@@ -1242,7 +1242,7 @@ var config;
 			z-index:9997;
 			border-right:2px solid #CDcDcD;
 			position:fixed;
-			background-color:#ffff65;
+			background-color:#ffff66;
 			float:left;
 			height:100%;
 			top:0;
