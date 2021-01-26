@@ -116,6 +116,7 @@ $(document).ready(function(){
 
 	$("#postAddy").change(function(){
 		jsonBlobAddy = $("#postAddy").val();
+		refresh();
 	})
 
 	var jsonBlobAddy;
@@ -132,19 +133,20 @@ $(document).ready(function(){
 	$("#postAddy").val(jsonBlobAddy);
 
 	$("#postAddyBtn").click(function(){
-		newLibrary();
+		getNewAddress();
 	})
 
 
-	//* ARES */
+	/* KeK */
 	$("select").change(function(){
-		$("#postAddy").val($(this).val())
-		newLibrary($(this).val());
+		var val = $(this).val();
+		$("#postAddy").val(val);
+		
 	})
 
 
 /*ATHENA*/
-function newLibrary(jsonBlobAddy){
+function getNewAddress(){
 	$.ajax({
         url: "https://jsonblob.com/api/jsonBlob",
         type: 'POST',
@@ -152,11 +154,12 @@ function newLibrary(jsonBlobAddy){
         data : '{"infoHash" : "' + lastHash + '" }',
         success: function(res, status, xhr) {
         	console.log("success");
-        	if(!jsonBlobAddy){
+        	//if(!jsonBlobAddy){
+        		lastHash = "";
         		jsonBlobAddy = /[^/]*$/.exec(xhr.getResponseHeader('Location'))[0];
-        		
+
         	$("select").append("<option value='" + jsonBlobAddy + "'>" + jsonBlobAddy + "</option>")
-        	}
+        	//}
         	
         	$("#postAddy").val(jsonBlobAddy);
         	//kek
@@ -166,6 +169,7 @@ function newLibrary(jsonBlobAddy){
 	}).prop('selected', true);
         
         refresh();
+        return jsonBlobAddy;
 
 
     	},
@@ -180,13 +184,12 @@ function newLibrary(jsonBlobAddy){
 */
 
 	function refresh(){
-		lastHash = "";
 		db_whjat_nodes().remove();
         	db_edges().remove();
         	$(".tile").empty();
         	$("table").empty();
         	alchemy = new Alchemy(config);
-        	populateTable()
+        	populateTable({})
 	}
 
 
