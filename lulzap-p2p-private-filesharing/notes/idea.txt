@@ -1,3 +1,0 @@
-enter the unique magnet URI ? hash it optionally?
-
-download 99% then encrpypt the last 1MB fragment, then the person can combine the files offline with a passphrase
